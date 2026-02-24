@@ -1,0 +1,14 @@
+C:\Users\user\Documents\Full Stack\BackEnd\API\EcommerceProject2API.PL\EcommerceProject2API.DAL\bin\Debug\net9.0\EcommerceProject2API.DAL.deps.json
+C:\Users\user\Documents\Full Stack\BackEnd\API\EcommerceProject2API.PL\EcommerceProject2API.DAL\bin\Debug\net9.0\EcommerceProject2API.DAL.runtimeconfig.json
+C:\Users\user\Documents\Full Stack\BackEnd\API\EcommerceProject2API.PL\EcommerceProject2API.DAL\bin\Debug\net9.0\EcommerceProject2API.DAL.dll
+C:\Users\user\Documents\Full Stack\BackEnd\API\EcommerceProject2API.PL\EcommerceProject2API.DAL\bin\Debug\net9.0\EcommerceProject2API.DAL.pdb
+C:\Users\user\Documents\Full Stack\BackEnd\API\EcommerceProject2API.PL\EcommerceProject2API.DAL\obj\Debug\net9.0\EcommerceProject2API.DAL.csproj.AssemblyReference.cache
+C:\Users\user\Documents\Full Stack\BackEnd\API\EcommerceProject2API.PL\EcommerceProject2API.DAL\obj\Debug\net9.0\EcommerceProject2API.DAL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\Documents\Full Stack\BackEnd\API\EcommerceProject2API.PL\EcommerceProject2API.DAL\obj\Debug\net9.0\EcommerceProject2API.DAL.AssemblyInfoInputs.cache
+C:\Users\user\Documents\Full Stack\BackEnd\API\EcommerceProject2API.PL\EcommerceProject2API.DAL\obj\Debug\net9.0\EcommerceProject2API.DAL.AssemblyInfo.cs
+C:\Users\user\Documents\Full Stack\BackEnd\API\EcommerceProject2API.PL\EcommerceProject2API.DAL\obj\Debug\net9.0\EcommerceProject2API.DAL.csproj.CoreCompileInputs.cache
+C:\Users\user\Documents\Full Stack\BackEnd\API\EcommerceProject2API.PL\EcommerceProject2API.DAL\obj\Debug\net9.0\EcommerceProject2API.DAL.dll
+C:\Users\user\Documents\Full Stack\BackEnd\API\EcommerceProject2API.PL\EcommerceProject2API.DAL\obj\Debug\net9.0\refint\EcommerceProject2API.DAL.dll
+C:\Users\user\Documents\Full Stack\BackEnd\API\EcommerceProject2API.PL\EcommerceProject2API.DAL\obj\Debug\net9.0\EcommerceProject2API.DAL.pdb
+C:\Users\user\Documents\Full Stack\BackEnd\API\EcommerceProject2API.PL\EcommerceProject2API.DAL\obj\Debug\net9.0\EcommerceProject2API.DAL.genruntimeconfig.cache
+C:\Users\user\Documents\Full Stack\BackEnd\API\EcommerceProject2API.PL\EcommerceProject2API.DAL\obj\Debug\net9.0\ref\EcommerceProject2API.DAL.dll

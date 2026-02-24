@@ -1,0 +1,15 @@
+C:\Users\user\Documents\Full Stack\BackEnd\API\EcommerceProject2API.PL\EcommerceProject2API.BBL\bin\Debug\net9.0\EcommerceProject2API.BBL.deps.json
+C:\Users\user\Documents\Full Stack\BackEnd\API\EcommerceProject2API.PL\EcommerceProject2API.BBL\bin\Debug\net9.0\EcommerceProject2API.BBL.dll
+C:\Users\user\Documents\Full Stack\BackEnd\API\EcommerceProject2API.PL\EcommerceProject2API.BBL\bin\Debug\net9.0\EcommerceProject2API.BBL.pdb
+C:\Users\user\Documents\Full Stack\BackEnd\API\EcommerceProject2API.PL\EcommerceProject2API.BBL\bin\Debug\net9.0\EcommerceProject2API.DAL.dll
+C:\Users\user\Documents\Full Stack\BackEnd\API\EcommerceProject2API.PL\EcommerceProject2API.BBL\bin\Debug\net9.0\EcommerceProject2API.DAL.pdb
+C:\Users\user\Documents\Full Stack\BackEnd\API\EcommerceProject2API.PL\EcommerceProject2API.BBL\obj\Debug\net9.0\EcommerceProject2API.BBL.csproj.AssemblyReference.cache
+C:\Users\user\Documents\Full Stack\BackEnd\API\EcommerceProject2API.PL\EcommerceProject2API.BBL\obj\Debug\net9.0\EcommerceProject2API.BBL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\Documents\Full Stack\BackEnd\API\EcommerceProject2API.PL\EcommerceProject2API.BBL\obj\Debug\net9.0\EcommerceProject2API.BBL.AssemblyInfoInputs.cache
+C:\Users\user\Documents\Full Stack\BackEnd\API\EcommerceProject2API.PL\EcommerceProject2API.BBL\obj\Debug\net9.0\EcommerceProject2API.BBL.AssemblyInfo.cs
+C:\Users\user\Documents\Full Stack\BackEnd\API\EcommerceProject2API.PL\EcommerceProject2API.BBL\obj\Debug\net9.0\EcommerceProject2API.BBL.csproj.CoreCompileInputs.cache
+C:\Users\user\Documents\Full Stack\BackEnd\API\EcommerceProject2API.PL\EcommerceProject2API.BBL\obj\Debug\net9.0\Ecommerc.7DB739EB.Up2Date
+C:\Users\user\Documents\Full Stack\BackEnd\API\EcommerceProject2API.PL\EcommerceProject2API.BBL\obj\Debug\net9.0\EcommerceProject2API.BBL.dll
+C:\Users\user\Documents\Full Stack\BackEnd\API\EcommerceProject2API.PL\EcommerceProject2API.BBL\obj\Debug\net9.0\refint\EcommerceProject2API.BBL.dll
+C:\Users\user\Documents\Full Stack\BackEnd\API\EcommerceProject2API.PL\EcommerceProject2API.BBL\obj\Debug\net9.0\EcommerceProject2API.BBL.pdb
+C:\Users\user\Documents\Full Stack\BackEnd\API\EcommerceProject2API.PL\EcommerceProject2API.BBL\obj\Debug\net9.0\ref\EcommerceProject2API.BBL.dll
