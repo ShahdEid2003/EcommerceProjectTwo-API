@@ -1,4 +1,6 @@
 
+using EcommerceProject2API.BBL.Services.Classes;
+using EcommerceProject2API.BBL.Services.Interfaces;
 using EcommerceProject2API.DAL.Data;
 using EcommerceProject2API.DAL.Repository.Classes;
 using EcommerceProject2API.DAL.Repository.Interfaces;
@@ -43,6 +45,7 @@ namespace EcommerceProject2API.PL
                 options.RequestCultureProviders.Add(new AcceptLanguageHeaderRequestCultureProvider());
             });
             builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+            builder.Services.AddScoped<ICategoryService, CategoryService>();
             var app = builder.Build();
             app.UseRequestLocalization(app.Services.GetRequiredService<IOptions<RequestLocalizationOptions>>().Value);
 

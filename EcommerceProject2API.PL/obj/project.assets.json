@@ -1650,7 +1650,8 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v9.0",
         "dependencies": {
-          "EcommerceProject2API.DAL": "1.0.0"
+          "EcommerceProject2API.DAL": "1.0.0",
+          "Mapster": "7.4.0"
         },
         "compile": {
           "bin/placeholder/EcommerceProject2API.BBL.dll": {}
