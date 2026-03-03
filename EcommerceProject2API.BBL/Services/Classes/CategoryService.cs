@@ -7,6 +7,7 @@ using Mapster;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -28,8 +29,14 @@ namespace EcommerceProject2API.BBL.Services.Classes
 
         public async Task<List<CategoryResponse>>GetAllCategories()
         {
-            var categories=await _ICategoryRepository.GetAll();
+            var categories=await _ICategoryRepository.GetAll(new string[] {nameof(Category.Translations)}); //{nameof(Category.Translations)}تكافىء{"translatins"}
             return categories.Adapt<List<CategoryResponse>>();  
+
+        }
+        public async Task<CategoryResponse?> GetCategory(Expression<Func<Category, bool>> filiter)
+        {
+            var category = await _ICategoryRepository.GetOne(filiter,new string[] { nameof(Category.Translations) }); //{nameof(Category.Translations)}تكافىء{"translatins"}
+            return category.Adapt<CategoryResponse>(); ;
 
         }
     }

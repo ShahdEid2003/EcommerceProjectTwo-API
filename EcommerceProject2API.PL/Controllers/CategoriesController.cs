@@ -45,9 +45,17 @@ namespace EcommerceProject2API.PL.Controllers
         [HttpGet("")]
         public async Task<IActionResult >Index()
         {
-            var response = await _ICategoryService.GetAllCategories();
+            var categories = await _ICategoryService.GetAllCategories();
              
-            return Ok(new { data = response, _localizer["Success"].Value });
+            return Ok(new { data = categories, _localizer["Success"].Value });
+
+        }
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetById(int id)
+        {
+            var category = await _ICategoryService.GetCategory(c=>c.Id==id);
+
+            return Ok(new { data = category, _localizer["Success"].Value });
 
         }
     }
