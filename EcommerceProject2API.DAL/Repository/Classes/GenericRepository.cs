@@ -26,6 +26,14 @@ namespace EcommerceProject2API.DAL.Repository.Classes
             return entity;
         }
 
+        public async Task<bool> Delete(T entity)
+        {
+             _context.Remove(entity);
+            var affected =await _context.SaveChangesAsync();
+            return affected > 0;
+
+        }
+
         public async Task<List<T>> GetAll(string[]? includes = null)
         {
             
@@ -45,7 +53,7 @@ namespace EcommerceProject2API.DAL.Repository.Classes
             // return await _context.Set<T>().Include(c => c.Translations).ToListAsync() بدل ما كانت 
         }
 
-        public async Task<T> GetOne(Expression<Func<T, bool>> filiter, string[]? includes = null)
+        public async Task<T?> GetOne(Expression<Func<T, bool>> filiter, string[]? includes = null)
         {
             IQueryable<T> query = _context.Set<T>();
             if (includes != null)

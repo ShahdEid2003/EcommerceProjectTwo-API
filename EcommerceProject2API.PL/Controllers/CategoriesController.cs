@@ -30,7 +30,7 @@ namespace EcommerceProject2API.PL.Controllers
         [HttpPost("")]
         public async Task<IActionResult> Create(CategoryRequest request)
         {
-            var response =await _ICategoryService.CreateCategory(request);
+            var response = await _ICategoryService.CreateCategory(request);
 
 
             return
@@ -43,19 +43,28 @@ namespace EcommerceProject2API.PL.Controllers
 
         }
         [HttpGet("")]
-        public async Task<IActionResult >Index()
+        public async Task<IActionResult> Index()
         {
             var categories = await _ICategoryService.GetAllCategories();
-             
+
             return Ok(new { data = categories, _localizer["Success"].Value });
 
         }
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
-            var category = await _ICategoryService.GetCategory(c=>c.Id==id);
+            var category = await _ICategoryService.GetCategory(c => c.Id == id);
 
             return Ok(new { data = category, _localizer["Success"].Value });
+
+        }
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteCategory(int id)
+        {
+            var result = await _ICategoryService.DeleteCategory(id);
+            if (!result) return NotFound(new { messege = _localizer["NotFound"].Value });
+            return Ok(new { messege = _localizer["Success"].Value }); ;
+
 
         }
     }

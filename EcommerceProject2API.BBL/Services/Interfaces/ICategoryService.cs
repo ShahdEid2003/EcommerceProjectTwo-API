@@ -14,6 +14,7 @@ namespace EcommerceProject2API.BBL.Services.Interfaces
     {
         public  Task <List<CategoryResponse> >GetAllCategories();
         public Task<CategoryResponse> CreateCategory(CategoryRequest request);
+        public Task<bool> DeleteCategory(int id);
         public Task<CategoryResponse?> GetCategory(Expression<Func<Category, bool>> filiter);
 
 

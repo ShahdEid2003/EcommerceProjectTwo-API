@@ -11,6 +11,7 @@ namespace EcommerceProject2API.DAL.Repository.Interfaces
     {
         Task<List<T>> GetAll(string[]? includes = null);
         Task<T> Create(T entity);
-        Task<T> GetOne(Expression <Func <T,bool>> filiter,string[]? includes = null);
+        Task<bool> Delete(T entity);
+        Task<T?> GetOne(Expression <Func <T,bool>> filiter,string[]? includes = null);
     }
 }

@@ -1,4 +1,5 @@
-﻿using EcommerceProject2API.DAL.Models
+﻿
+using EcommerceProject2API.DAL.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;

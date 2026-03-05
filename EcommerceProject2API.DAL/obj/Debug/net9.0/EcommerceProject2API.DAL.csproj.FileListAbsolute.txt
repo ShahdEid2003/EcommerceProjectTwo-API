@@ -12,3 +12,4 @@ C:\Users\user\Documents\Full Stack\BackEnd\API\EcommerceProject2API.PL\Ecommerce
 C:\Users\user\Documents\Full Stack\BackEnd\API\EcommerceProject2API.PL\EcommerceProject2API.DAL\obj\Debug\net9.0\EcommerceProject2API.DAL.pdb
 C:\Users\user\Documents\Full Stack\BackEnd\API\EcommerceProject2API.PL\EcommerceProject2API.DAL\obj\Debug\net9.0\EcommerceProject2API.DAL.genruntimeconfig.cache
 C:\Users\user\Documents\Full Stack\BackEnd\API\EcommerceProject2API.PL\EcommerceProject2API.DAL\obj\Debug\net9.0\ref\EcommerceProject2API.DAL.dll
+C:\Users\user\Documents\Full Stack\BackEnd\API\EcommerceProject2API.PL\EcommerceProject2API.DAL\obj\Debug\net9.0\EcommerceProject2API.DAL.sourcelink.json
