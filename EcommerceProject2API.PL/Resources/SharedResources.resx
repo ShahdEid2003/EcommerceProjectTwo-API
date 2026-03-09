@@ -120,6 +120,9 @@
   <data name="NotFound" xml:space="preserve">
     <value>not found</value>
   </data>
+  <data name="OK" xml:space="preserve">
+    <value>OK</value>
+  </data>
   <data name="Success" xml:space="preserve">
     <value>success</value>
   </data>

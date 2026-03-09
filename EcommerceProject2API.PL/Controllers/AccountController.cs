@@ -15,21 +15,27 @@ namespace EcommerceProject2API.PL.Controllers
         private readonly IAuthenticationService _authService;
         public AccountController(IAuthenticationService authService, IStringLocalizer<SharedResources> localizer)
         {
-         _authService=authService;
-        _localizer = localizer;
+            _authService = authService;
+            _localizer = localizer;
         }
         [HttpPost("register")]
         public async Task<IActionResult> Register(RegisterRequest request)
         {
-            var result=await _authService.Register(request);
+            var result = await _authService.Register(request);
             return Ok(result);
         }
         [HttpPost("login")]
         public async Task<IActionResult> Login(LoginRequest request)
         {
             var result = await _authService.Login(request);
-            if(!result.Success) return BadRequest(result);
+            if (!result.Success) return BadRequest(result);
             return Ok(result);
         }
+        [HttpGet("ConfirmEmail")]
+        public async Task<IActionResult> ConfirmEmail(string token)
+        { 
+            return Ok(new { message = _localizer["OK"].Value });
+        }
+
     }
 }

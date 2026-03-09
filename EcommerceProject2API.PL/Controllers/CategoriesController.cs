@@ -37,7 +37,7 @@ namespace EcommerceProject2API.PL.Controllers
                 Ok(new
                 {
                     response,
-                    _message = _localizer["Success"].Value
+                    message = _localizer["Success"].Value
                 });
 
 

@@ -120,6 +120,9 @@
   <data name="NotFound" xml:space="preserve">
     <value>فشل الطلب</value>
   </data>
+  <data name="OK" xml:space="preserve">
+    <value>اوك</value>
+  </data>
   <data name="Success" xml:space="preserve">
     <value>تمت بنجاح</value>
   </data>
