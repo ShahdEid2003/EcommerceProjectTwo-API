@@ -20,6 +20,21 @@ namespace EcommerceProject2API.BBL.Services.Classes
         {
             _userManager = userManager;
         }
+
+        public async Task<LoginResponse> Login(LoginRequest request)
+        {
+            var user= await _userManager.FindByEmailAsync(request.Email);
+            if (user is null) {
+                return new LoginResponse() { Success = false, Message = "invalid email" };
+            }
+            var result =await _userManager.CheckPasswordAsync(user,request.Password);
+            if (!result)
+            {
+                return new LoginResponse() { Success = false, Message = "invalid password" };
+            }
+            return new LoginResponse() { Success = true, Message = "Success" };
+        }
+
         public async Task<RegisterResponse> Register(RegisterRequest request)
         {
             var user = request.Adapt<ApplicationUser>();
@@ -27,8 +42,11 @@ namespace EcommerceProject2API.BBL.Services.Classes
             if (!result.Succeeded)
                 return new RegisterResponse() { Success = false, Message = "Error" }
                 ;
+            await _userManager.AddToRoleAsync(user, "User");
             return new RegisterResponse() { Success = true, Message = "Success" }
                 ;
         }
+
+      
     }
 }

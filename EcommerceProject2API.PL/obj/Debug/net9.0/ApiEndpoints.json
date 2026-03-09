@@ -1,5 +1,21 @@
 [
   {
+    "ContainingType": "EcommerceProject2API.PL.Controllers.AccountController",
+    "Method": "Register",
+    "RelativePath": "api/Account/register",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "EcommerceProject2API.DAL.DTO.Request.RegisterRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "EcommerceProject2API.PL.Controllers.CategoriesController",
     "Method": "Create",
     "RelativePath": "api/Categories",

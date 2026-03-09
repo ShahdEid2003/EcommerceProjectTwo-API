@@ -5,17 +5,19 @@ using EcommerceProject2API.DAL.Data;
 using EcommerceProject2API.DAL.Models;
 using EcommerceProject2API.DAL.Repository.Classes;
 using EcommerceProject2API.DAL.Repository.Interfaces;
+using EcommerceProject2API.DAL.Utils;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using System.Globalization;
+using System.Threading.Tasks;
 
 namespace EcommerceProject2API.PL
 {
     public class Program
     {
-        public static void Main(string[] args)
+        public static async Task Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
 
@@ -49,6 +51,7 @@ namespace EcommerceProject2API.PL
             builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
             builder.Services.AddScoped<ICategoryService, CategoryService>();
             builder.Services.AddScoped<IAuthenticationService, AuthenticationService>();
+            builder.Services.AddScoped<ISeedData, RoleSeedData>();
             builder.Services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>();
             var app = builder.Build();
             app.UseRequestLocalization(app.Services.GetRequiredService<IOptions<RequestLocalizationOptions>>().Value);
@@ -65,7 +68,15 @@ namespace EcommerceProject2API.PL
 
 
             app.MapControllers();
-
+            using (var scope = app.Services.CreateScope())
+            {
+                var services = scope.ServiceProvider;
+                var seeders = services.GetServices<ISeedData>();
+                foreach(var seeder in seeders)
+                {
+                    await seeder.DataSeed();
+                }
+            }
             app.Run();
         }
     }

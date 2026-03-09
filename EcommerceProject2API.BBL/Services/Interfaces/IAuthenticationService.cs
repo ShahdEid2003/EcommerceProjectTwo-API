@@ -11,5 +11,6 @@ namespace EcommerceProject2API.BBL.Services.Interfaces
     public interface IAuthenticationService
     {
         Task<RegisterResponse> Register(RegisterRequest request);
+        Task<LoginResponse> Login(LoginRequest request);
     }
 }

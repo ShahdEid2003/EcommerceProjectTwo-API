@@ -3,10 +3,6 @@
   "WorkspaceRootPath": "C:\\Users\\user\\Documents\\Full Stack\\BackEnd\\API\\EcommerceProject2API.PL\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5CE71F47-C3A6-4B4C-8696-33FB17E80839}|EcommerceProject2API.PL\\EcommerceProject2API.PL.csproj|c:\\users\\user\\documents\\full stack\\backend\\api\\ecommerceproject2api.pl\\ecommerceproject2api.pl\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5CE71F47-C3A6-4B4C-8696-33FB17E80839}|EcommerceProject2API.PL\\EcommerceProject2API.PL.csproj|solutionrelative:ecommerceproject2api.pl\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{5CE71F47-C3A6-4B4C-8696-33FB17E80839}|EcommerceProject2API.PL\\EcommerceProject2API.PL.csproj|c:\\users\\user\\documents\\full stack\\backend\\api\\ecommerceproject2api.pl\\ecommerceproject2api.pl\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5CE71F47-C3A6-4B4C-8696-33FB17E80839}|EcommerceProject2API.PL\\EcommerceProject2API.PL.csproj|solutionrelative:ecommerceproject2api.pl\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -15,20 +11,36 @@
       "RelativeMoniker": "D:0:0:{F10C8BFA-998D-4BA7-8C9C-868D9290BDAA}|EcommerceProject2API.BBL\\EcommerceProject2API.BBL.csproj|solutionrelative:ecommerceproject2api.bbl\\services\\classes\\authenticationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9BB292EE-1F93-4F5E-A486-F3A32C3753B2}|EcommerceProject2API.DAL\\EcommerceProject2API.DAL.csproj|c:\\users\\user\\documents\\full stack\\backend\\api\\ecommerceproject2api.pl\\ecommerceproject2api.dal\\dto\\response\\registerresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9BB292EE-1F93-4F5E-A486-F3A32C3753B2}|EcommerceProject2API.DAL\\EcommerceProject2API.DAL.csproj|solutionrelative:ecommerceproject2api.dal\\dto\\response\\registerresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{F10C8BFA-998D-4BA7-8C9C-868D9290BDAA}|EcommerceProject2API.BBL\\EcommerceProject2API.BBL.csproj|c:\\users\\user\\documents\\full stack\\backend\\api\\ecommerceproject2api.pl\\ecommerceproject2api.bbl\\services\\interfaces\\iauthenticationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F10C8BFA-998D-4BA7-8C9C-868D9290BDAA}|EcommerceProject2API.BBL\\EcommerceProject2API.BBL.csproj|solutionrelative:ecommerceproject2api.bbl\\services\\interfaces\\iauthenticationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9BB292EE-1F93-4F5E-A486-F3A32C3753B2}|EcommerceProject2API.DAL\\EcommerceProject2API.DAL.csproj|c:\\users\\user\\documents\\full stack\\backend\\api\\ecommerceproject2api.pl\\ecommerceproject2api.dal\\dto\\request\\registerrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9BB292EE-1F93-4F5E-A486-F3A32C3753B2}|EcommerceProject2API.DAL\\EcommerceProject2API.DAL.csproj|solutionrelative:ecommerceproject2api.dal\\dto\\request\\registerrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9BB292EE-1F93-4F5E-A486-F3A32C3753B2}|EcommerceProject2API.DAL\\EcommerceProject2API.DAL.csproj|c:\\users\\user\\documents\\full stack\\backend\\api\\ecommerceproject2api.pl\\ecommerceproject2api.dal\\dto\\request\\loginrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9BB292EE-1F93-4F5E-A486-F3A32C3753B2}|EcommerceProject2API.DAL\\EcommerceProject2API.DAL.csproj|solutionrelative:ecommerceproject2api.dal\\dto\\request\\loginrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5CE71F47-C3A6-4B4C-8696-33FB17E80839}|EcommerceProject2API.PL\\EcommerceProject2API.PL.csproj|c:\\users\\user\\documents\\full stack\\backend\\api\\ecommerceproject2api.pl\\ecommerceproject2api.pl\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{5CE71F47-C3A6-4B4C-8696-33FB17E80839}|EcommerceProject2API.PL\\EcommerceProject2API.PL.csproj|solutionrelative:ecommerceproject2api.pl\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{9BB292EE-1F93-4F5E-A486-F3A32C3753B2}|EcommerceProject2API.DAL\\EcommerceProject2API.DAL.csproj|c:\\users\\user\\documents\\full stack\\backend\\api\\ecommerceproject2api.pl\\ecommerceproject2api.dal\\dto\\response\\loginresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9BB292EE-1F93-4F5E-A486-F3A32C3753B2}|EcommerceProject2API.DAL\\EcommerceProject2API.DAL.csproj|solutionrelative:ecommerceproject2api.dal\\dto\\response\\loginresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9BB292EE-1F93-4F5E-A486-F3A32C3753B2}|EcommerceProject2API.DAL\\EcommerceProject2API.DAL.csproj|c:\\users\\user\\documents\\full stack\\backend\\api\\ecommerceproject2api.pl\\ecommerceproject2api.dal\\dto\\response\\registerresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9BB292EE-1F93-4F5E-A486-F3A32C3753B2}|EcommerceProject2API.DAL\\EcommerceProject2API.DAL.csproj|solutionrelative:ecommerceproject2api.dal\\dto\\response\\registerresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5CE71F47-C3A6-4B4C-8696-33FB17E80839}|EcommerceProject2API.PL\\EcommerceProject2API.PL.csproj|c:\\users\\user\\documents\\full stack\\backend\\api\\ecommerceproject2api.pl\\ecommerceproject2api.pl\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5CE71F47-C3A6-4B4C-8696-33FB17E80839}|EcommerceProject2API.PL\\EcommerceProject2API.PL.csproj|solutionrelative:ecommerceproject2api.pl\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9BB292EE-1F93-4F5E-A486-F3A32C3753B2}|EcommerceProject2API.DAL\\EcommerceProject2API.DAL.csproj|c:\\users\\user\\documents\\full stack\\backend\\api\\ecommerceproject2api.pl\\ecommerceproject2api.dal\\utils\\roleseeddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9BB292EE-1F93-4F5E-A486-F3A32C3753B2}|EcommerceProject2API.DAL\\EcommerceProject2API.DAL.csproj|solutionrelative:ecommerceproject2api.dal\\utils\\roleseeddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9BB292EE-1F93-4F5E-A486-F3A32C3753B2}|EcommerceProject2API.DAL\\EcommerceProject2API.DAL.csproj|c:\\users\\user\\documents\\full stack\\backend\\api\\ecommerceproject2api.pl\\ecommerceproject2api.dal\\utils\\iseeddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9BB292EE-1F93-4F5E-A486-F3A32C3753B2}|EcommerceProject2API.DAL\\EcommerceProject2API.DAL.csproj|solutionrelative:ecommerceproject2api.dal\\utils\\iseeddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9BB292EE-1F93-4F5E-A486-F3A32C3753B2}|EcommerceProject2API.DAL\\EcommerceProject2API.DAL.csproj|c:\\users\\user\\documents\\full stack\\backend\\api\\ecommerceproject2api.pl\\ecommerceproject2api.dal\\ecommerceproject2api.dal.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{9BB292EE-1F93-4F5E-A486-F3A32C3753B2}|EcommerceProject2API.DAL\\EcommerceProject2API.DAL.csproj|solutionrelative:ecommerceproject2api.dal\\ecommerceproject2api.dal.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,101 +50,140 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 6,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "IAuthenticationService.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Documents\\Full Stack\\BackEnd\\API\\EcommerceProject2API.PL\\EcommerceProject2API.BBL\\Services\\Interfaces\\IAuthenticationService.cs",
+              "RelativeDocumentMoniker": "EcommerceProject2API.BBL\\Services\\Interfaces\\IAuthenticationService.cs",
+              "ToolTip": "C:\\Users\\user\\Documents\\Full Stack\\BackEnd\\API\\EcommerceProject2API.PL\\EcommerceProject2API.BBL\\Services\\Interfaces\\IAuthenticationService.cs",
+              "RelativeToolTip": "EcommerceProject2API.BBL\\Services\\Interfaces\\IAuthenticationService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-09T00:45:46.617Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "LoginResponse.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Documents\\Full Stack\\BackEnd\\API\\EcommerceProject2API.PL\\EcommerceProject2API.DAL\\DTO\\Response\\LoginResponse.cs",
+              "RelativeDocumentMoniker": "EcommerceProject2API.DAL\\DTO\\Response\\LoginResponse.cs",
+              "ToolTip": "C:\\Users\\user\\Documents\\Full Stack\\BackEnd\\API\\EcommerceProject2API.PL\\EcommerceProject2API.DAL\\DTO\\Response\\LoginResponse.cs",
+              "RelativeToolTip": "EcommerceProject2API.DAL\\DTO\\Response\\LoginResponse.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-09T00:44:23.203Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "LoginRequest.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Documents\\Full Stack\\BackEnd\\API\\EcommerceProject2API.PL\\EcommerceProject2API.DAL\\DTO\\Request\\LoginRequest.cs",
+              "RelativeDocumentMoniker": "EcommerceProject2API.DAL\\DTO\\Request\\LoginRequest.cs",
+              "ToolTip": "C:\\Users\\user\\Documents\\Full Stack\\BackEnd\\API\\EcommerceProject2API.PL\\EcommerceProject2API.DAL\\DTO\\Request\\LoginRequest.cs",
+              "RelativeToolTip": "EcommerceProject2API.DAL\\DTO\\Request\\LoginRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-09T00:44:08.233Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AuthenticationService.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Documents\\Full Stack\\BackEnd\\API\\EcommerceProject2API.PL\\EcommerceProject2API.BBL\\Services\\Classes\\AuthenticationService.cs",
+              "RelativeDocumentMoniker": "EcommerceProject2API.BBL\\Services\\Classes\\AuthenticationService.cs",
+              "ToolTip": "C:\\Users\\user\\Documents\\Full Stack\\BackEnd\\API\\EcommerceProject2API.PL\\EcommerceProject2API.BBL\\Services\\Classes\\AuthenticationService.cs",
+              "RelativeToolTip": "EcommerceProject2API.BBL\\Services\\Classes\\AuthenticationService.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAAACIAAABPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-09T00:41:18.818Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 6,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\user\\Documents\\Full Stack\\BackEnd\\API\\EcommerceProject2API.PL\\EcommerceProject2API.PL\\Program.cs",
               "RelativeDocumentMoniker": "EcommerceProject2API.PL\\Program.cs",
               "ToolTip": "C:\\Users\\user\\Documents\\Full Stack\\BackEnd\\API\\EcommerceProject2API.PL\\EcommerceProject2API.PL\\Program.cs",
               "RelativeToolTip": "EcommerceProject2API.PL\\Program.cs",
-              "ViewState": "AgIAACUAAAAAAAAAAAAAADkAAAANAAAAAAAAAA==",
+              "ViewState": "AgIAAC8AAAAAAAAAAAAAAEwAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-05T02:57:05.627Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "AccountController.cs",
               "DocumentMoniker": "C:\\Users\\user\\Documents\\Full Stack\\BackEnd\\API\\EcommerceProject2API.PL\\EcommerceProject2API.PL\\Controllers\\AccountController.cs",
               "RelativeDocumentMoniker": "EcommerceProject2API.PL\\Controllers\\AccountController.cs",
               "ToolTip": "C:\\Users\\user\\Documents\\Full Stack\\BackEnd\\API\\EcommerceProject2API.PL\\EcommerceProject2API.PL\\Controllers\\AccountController.cs",
               "RelativeToolTip": "EcommerceProject2API.PL\\Controllers\\AccountController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAAAB4AAAA6AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-05T02:49:38.838Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 7,
+              "Title": "RoleSeedData.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Documents\\Full Stack\\BackEnd\\API\\EcommerceProject2API.PL\\EcommerceProject2API.DAL\\Utils\\RoleSeedData.cs",
+              "RelativeDocumentMoniker": "EcommerceProject2API.DAL\\Utils\\RoleSeedData.cs",
+              "ToolTip": "C:\\Users\\user\\Documents\\Full Stack\\BackEnd\\API\\EcommerceProject2API.PL\\EcommerceProject2API.DAL\\Utils\\RoleSeedData.cs",
+              "RelativeToolTip": "EcommerceProject2API.DAL\\Utils\\RoleSeedData.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-08T23:37:27.168Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ISeedData.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Documents\\Full Stack\\BackEnd\\API\\EcommerceProject2API.PL\\EcommerceProject2API.DAL\\Utils\\ISeedData.cs",
+              "RelativeDocumentMoniker": "EcommerceProject2API.DAL\\Utils\\ISeedData.cs",
+              "ToolTip": "C:\\Users\\user\\Documents\\Full Stack\\BackEnd\\API\\EcommerceProject2API.PL\\EcommerceProject2API.DAL\\Utils\\ISeedData.cs",
+              "RelativeToolTip": "EcommerceProject2API.DAL\\Utils\\ISeedData.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-08T23:37:02.502Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "RegisterResponse.cs",
               "DocumentMoniker": "C:\\Users\\user\\Documents\\Full Stack\\BackEnd\\API\\EcommerceProject2API.PL\\EcommerceProject2API.DAL\\DTO\\Response\\RegisterResponse.cs",
               "RelativeDocumentMoniker": "EcommerceProject2API.DAL\\DTO\\Response\\RegisterResponse.cs",
               "ToolTip": "C:\\Users\\user\\Documents\\Full Stack\\BackEnd\\API\\EcommerceProject2API.PL\\EcommerceProject2API.DAL\\DTO\\Response\\RegisterResponse.cs",
               "RelativeToolTip": "EcommerceProject2API.DAL\\DTO\\Response\\RegisterResponse.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAASAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-05T02:10:46.326Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "RegisterRequest.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Documents\\Full Stack\\BackEnd\\API\\EcommerceProject2API.PL\\EcommerceProject2API.DAL\\DTO\\Request\\RegisterRequest.cs",
-              "RelativeDocumentMoniker": "EcommerceProject2API.DAL\\DTO\\Request\\RegisterRequest.cs",
-              "ToolTip": "C:\\Users\\user\\Documents\\Full Stack\\BackEnd\\API\\EcommerceProject2API.PL\\EcommerceProject2API.DAL\\DTO\\Request\\RegisterRequest.cs",
-              "RelativeToolTip": "EcommerceProject2API.DAL\\DTO\\Request\\RegisterRequest.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAsAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-05T02:09:15.447Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "AuthenticationService.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Documents\\Full Stack\\BackEnd\\API\\EcommerceProject2API.PL\\EcommerceProject2API.BBL\\Services\\Classes\\AuthenticationService.cs",
-              "RelativeDocumentMoniker": "EcommerceProject2API.BBL\\Services\\Classes\\AuthenticationService.cs",
-              "ToolTip": "C:\\Users\\user\\Documents\\Full Stack\\BackEnd\\API\\EcommerceProject2API.PL\\EcommerceProject2API.BBL\\Services\\Classes\\AuthenticationService.cs",
-              "RelativeToolTip": "EcommerceProject2API.BBL\\Services\\Classes\\AuthenticationService.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAAAB0AAABOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-05T02:06:56.807Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "IAuthenticationService.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Documents\\Full Stack\\BackEnd\\API\\EcommerceProject2API.PL\\EcommerceProject2API.BBL\\Services\\Interfaces\\IAuthenticationService.cs",
-              "RelativeDocumentMoniker": "EcommerceProject2API.BBL\\Services\\Interfaces\\IAuthenticationService.cs",
-              "ToolTip": "C:\\Users\\user\\Documents\\Full Stack\\BackEnd\\API\\EcommerceProject2API.PL\\EcommerceProject2API.BBL\\Services\\Interfaces\\IAuthenticationService.cs",
-              "RelativeToolTip": "EcommerceProject2API.BBL\\Services\\Interfaces\\IAuthenticationService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAABBAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-05T02:06:29.669Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\user\\Documents\\Full Stack\\BackEnd\\API\\EcommerceProject2API.PL\\EcommerceProject2API.PL\\appsettings.json",
-              "RelativeDocumentMoniker": "EcommerceProject2API.PL\\appsettings.json",
-              "ToolTip": "C:\\Users\\user\\Documents\\Full Stack\\BackEnd\\API\\EcommerceProject2API.PL\\EcommerceProject2API.PL\\appsettings.json",
-              "RelativeToolTip": "EcommerceProject2API.PL\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAApAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-02-19T23:00:12.958Z",
+              "DocumentIndex": 9,
+              "Title": "EcommerceProject2API.DAL",
+              "DocumentMoniker": "C:\\Users\\user\\Documents\\Full Stack\\BackEnd\\API\\EcommerceProject2API.PL\\EcommerceProject2API.DAL\\EcommerceProject2API.DAL.csproj",
+              "RelativeDocumentMoniker": "EcommerceProject2API.DAL\\EcommerceProject2API.DAL.csproj",
+              "ToolTip": "C:\\Users\\user\\Documents\\Full Stack\\BackEnd\\API\\EcommerceProject2API.PL\\EcommerceProject2API.DAL\\EcommerceProject2API.DAL.csproj",
+              "RelativeToolTip": "EcommerceProject2API.DAL\\EcommerceProject2API.DAL.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-03-08T23:35:32.624Z",
               "EditorCaption": ""
             }
           ]

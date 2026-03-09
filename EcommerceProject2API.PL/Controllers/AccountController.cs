@@ -22,7 +22,14 @@ namespace EcommerceProject2API.PL.Controllers
         public async Task<IActionResult> Register(RegisterRequest request)
         {
             var result=await _authService.Register(request);
-            return Ok(new { message = _localizer["Success"].Value ,result});
+            return Ok(result);
+        }
+        [HttpPost("login")]
+        public async Task<IActionResult> Login(LoginRequest request)
+        {
+            var result = await _authService.Login(request);
+            if(!result.Success) return BadRequest(result);
+            return Ok(result);
         }
     }
 }
