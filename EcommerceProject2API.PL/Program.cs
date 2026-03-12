@@ -13,6 +13,10 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using System.Globalization;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+
 
 namespace EcommerceProject2API.PL
 {
@@ -55,9 +59,39 @@ namespace EcommerceProject2API.PL
             builder.Services.AddScoped<ISeedData, RoleSeedData>();
             builder.Services.AddTransient<BBL.Services.Interfaces.IEmailSender, EmailSender>();
 
-            builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
-                .AddEntityFrameworkStores<ApplicationDbContext>()
+
+            builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
+            {
+                options.User.RequireUniqueEmail = true;
+            }).AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();//using for generate token 
+
+            builder.Services.AddAuthentication(options =>
+            {
+                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            })
+            .AddJwtBearer(options =>
+            {
+                options.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuer = true,
+                    ValidateAudience = true,
+                    ValidateLifetime = true,
+                    ValidateIssuerSigningKey = true,
+
+                    ValidIssuer = builder.Configuration["Jwt:Issuer"],
+                    ValidAudience = builder.Configuration["Jwt:Audience"],
+
+                    IssuerSigningKey = new SymmetricSecurityKey(
+                        Encoding.UTF8.GetBytes(builder.Configuration["Jwt:SecretKey"])
+                    )
+                };
+            });
+
+            builder.Services.AddAuthorization();//jwt
+
+
             var app = builder.Build();
             app.UseRequestLocalization(app.Services.GetRequiredService<IOptions<RequestLocalizationOptions>>().Value);
 
@@ -68,7 +102,7 @@ namespace EcommerceProject2API.PL
             }
 
             app.UseHttpsRedirection();
-
+            app.UseAuthentication();//jwt
             app.UseAuthorization();
 
 
@@ -77,7 +111,7 @@ namespace EcommerceProject2API.PL
             {
                 var services = scope.ServiceProvider;
                 var seeders = services.GetServices<ISeedData>();
-                foreach(var seeder in seeders)
+                foreach (var seeder in seeders)
                 {
                     await seeder.DataSeed();
                 }

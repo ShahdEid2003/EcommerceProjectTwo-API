@@ -12,5 +12,6 @@ namespace EcommerceProject2API.BBL.Services.Interfaces
     {
         Task<RegisterResponse> Register(RegisterRequest request);
         Task<LoginResponse> Login(LoginRequest request);
+        Task<bool> ConfirmEmail(string token, string userId);
     }
 }

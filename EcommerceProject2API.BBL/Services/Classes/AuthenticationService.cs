@@ -30,6 +30,11 @@ namespace EcommerceProject2API.BBL.Services.Classes
             {
                 return new LoginResponse() { Success = false, Message = "invalid email" };
             }
+            if (!await _userManager.IsEmailConfirmedAsync(user))
+            {
+                return new LoginResponse() { Success = false, Message = " email is not confirmed" };
+
+            }
             var result = await _userManager.CheckPasswordAsync(user, request.Password);
             if (!result)
             {
@@ -41,18 +46,31 @@ namespace EcommerceProject2API.BBL.Services.Classes
         public async Task<RegisterResponse> Register(RegisterRequest request)
         {
             var user = request.Adapt<ApplicationUser>();
-            var token= await _userManager.GenerateEmailConfirmationTokenAsync(user);
-            var emailurl = $"https://localhost:7186/api/Account/ConfirmEmail?token={token}";
+            
             var result = await _userManager.CreateAsync(user, request.Password);
             if (!result.Succeeded)
                 return new RegisterResponse() { Success = false, Message = string.Join(", ", result.Errors.Select(e => e.Description)) }
                 ;
+            //لازم ننشأ التوكن بعد عملية التسجيل بالداتا بيس بصرش تحطيها فوق قبل فنكشن انشاء الحساب
+            var token = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+            token = Uri.EscapeDataString(token);//عشان الترميز مع المتصفح يفهم انو نفس التوكن التي تم توليدها من قبله
+            var emailurl = $"https://localhost:7186/api/Account/ConfirmEmail?token={token}&userId={user.Id}";
+
             await _userManager.AddToRoleAsync(user, "User");
             await _emailSender.SendEmailAsync(user.Email, "welcome", $"<h1>welcome{request.UserName}</h1>" +
                 $"" +
                 $"<a href='{emailurl}'> confirm</a>");
             return new RegisterResponse() { Success = true, Message = "Success" }
                 ;
+        }
+        public async Task<bool> ConfirmEmail(string token, string userId)
+        {
+            var user = await _userManager.FindByIdAsync(userId);
+            if (user is null) return false;
+            var result = await _userManager.ConfirmEmailAsync(user, token);
+            if (!result.Succeeded) return false;
+            return true;
+
         }
 
 

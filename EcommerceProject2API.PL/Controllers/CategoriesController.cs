@@ -8,6 +8,7 @@ using EcommerceProject2API.DAL.Repository.Classes;
 using EcommerceProject2API.DAL.Repository.Interfaces;
 using EcommerceProject2API.PL.Resources;
 using Mapster;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -17,6 +18,7 @@ namespace EcommerceProject2API.PL.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class CategoriesController : ControllerBase
     {
 

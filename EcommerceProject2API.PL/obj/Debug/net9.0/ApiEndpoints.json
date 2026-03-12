@@ -11,6 +11,11 @@
         "Name": "token",
         "Type": "System.String",
         "IsRequired": false
+      },
+      {
+        "Name": "userId",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []

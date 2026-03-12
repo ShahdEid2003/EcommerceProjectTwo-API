@@ -32,9 +32,11 @@ namespace EcommerceProject2API.PL.Controllers
             return Ok(result);
         }
         [HttpGet("ConfirmEmail")]
-        public async Task<IActionResult> ConfirmEmail(string token)
-        { 
-            return Ok(new { message = _localizer["OK"].Value });
+        public async Task<IActionResult> ConfirmEmail(string token , string userId)
+        {
+            var isConfirmed = await _authService.ConfirmEmail(token, userId);
+            if (isConfirmed) return Ok(new { message = _localizer["OK"].Value });
+            return BadRequest();
         }
 
     }
