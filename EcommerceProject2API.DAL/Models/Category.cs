@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EcommerceProject2API.DAL.Models
 {
-    public class Category
+    public class Category:AuditableEntity
     {
         public int Id { get; set; }
        

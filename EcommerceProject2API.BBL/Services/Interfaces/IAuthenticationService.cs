@@ -1,5 +1,6 @@
 ﻿using EcommerceProject2API.DAL.DTO.Request;
 using EcommerceProject2API.DAL.DTO.Response;
+using EcommerceProject2API.DAL.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,5 +14,6 @@ namespace EcommerceProject2API.BBL.Services.Interfaces
         Task<RegisterResponse> Register(RegisterRequest request);
         Task<LoginResponse> Login(LoginRequest request);
         Task<bool> ConfirmEmail(string token, string userId);
+       
     }
 }
