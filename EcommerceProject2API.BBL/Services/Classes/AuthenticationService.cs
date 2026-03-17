@@ -4,6 +4,7 @@ using EcommerceProject2API.DAL.DTO.Response;
 using EcommerceProject2API.DAL.Models;
 using EcommerceProject2API.DAL.Repository.Interfaces;
 using Mapster;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
@@ -22,11 +23,14 @@ namespace EcommerceProject2API.BBL.Services.Classes
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly IEmailSender _emailSender;
         private readonly IConfiguration _configuration;
-        public AuthenticationService(UserManager<ApplicationUser> userManager, IEmailSender emailSender, IConfiguration configuration)
+        private readonly IHttpContextAccessor _httpContextAccessor;
+
+        public AuthenticationService(UserManager<ApplicationUser> userManager, IEmailSender emailSender, IConfiguration configuration,IHttpContextAccessor httpContextAccessor)
         {
             _userManager = userManager;
             _emailSender = emailSender;
             _configuration = configuration;
+            _httpContextAccessor = httpContextAccessor;
         }
 
         public async Task<RegisterResponse> Register(RegisterRequest request)
@@ -40,7 +44,7 @@ namespace EcommerceProject2API.BBL.Services.Classes
             //لازم ننشأ التوكن بعد عملية التسجيل بالداتا بيس بصرش تحطيها فوق قبل فنكشن انشاء الحساب
             var token = await _userManager.GenerateEmailConfirmationTokenAsync(user);
             token = Uri.EscapeDataString(token);//عشان الترميز مع المتصفح يفهم انو نفس التوكن التي تم توليدها من قبله
-            var emailurl = $"https://localhost:7186/api/Account/ConfirmEmail?token={token}&userId={user.Id}";
+            var emailurl = $"{_httpContextAccessor.HttpContext.Request.Scheme}://{_httpContextAccessor.HttpContext.Request.Host}/api/Account/ConfirmEmail?token={token}&userId={user.Id}";
 
             await _userManager.AddToRoleAsync(user, "User");
             await _emailSender.SendEmailAsync(user.Email, "welcome", $"<h1>welcome{request.UserName}</h1>" +
