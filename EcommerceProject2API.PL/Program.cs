@@ -74,6 +74,14 @@ namespace EcommerceProject2API.PL
             builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
             {
                 options.User.RequireUniqueEmail = true;
+                options.Password.RequireDigit = true;//0-9
+                options.Password.RequireLowercase= true;//a-z
+                options.Password.RequireUppercase= true;//A-Z
+                options.Password.RequireNonAlphanumeric = true;//!@#$%
+                options.Password.RequiredLength = 10;
+                options.Lockout.MaxFailedAccessAttempts = 5;//after 5 attempts lock 
+                options.Lockout.DefaultLockoutTimeSpan=TimeSpan.FromMinutes(5);//after 5 minutes lock
+
             }).AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();//using for generate token 
 

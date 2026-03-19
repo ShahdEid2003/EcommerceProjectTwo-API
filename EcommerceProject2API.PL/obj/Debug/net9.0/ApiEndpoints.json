@@ -53,6 +53,38 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "EcommerceProject2API.PL.Controllers.AccountController",
+    "Method": "ResetPassword",
+    "RelativePath": "api/Account/ResetPassword",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "EcommerceProject2API.DAL.DTO.Request.ResetPasswordRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EcommerceProject2API.PL.Controllers.AccountController",
+    "Method": "RequestPasswordReset",
+    "RelativePath": "api/Account/SendCode",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "EcommerceProject2API.DAL.DTO.Request.ForgetPasswordRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "EcommerceProject2API.PL.Controllers.CategoriesController",
     "Method": "Create",
     "RelativePath": "api/Categories",

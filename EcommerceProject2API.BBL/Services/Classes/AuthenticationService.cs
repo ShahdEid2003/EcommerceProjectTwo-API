@@ -25,7 +25,7 @@ namespace EcommerceProject2API.BBL.Services.Classes
         private readonly IConfiguration _configuration;
         private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public AuthenticationService(UserManager<ApplicationUser> userManager, IEmailSender emailSender, IConfiguration configuration,IHttpContextAccessor httpContextAccessor)
+        public AuthenticationService(UserManager<ApplicationUser> userManager, IEmailSender emailSender, IConfiguration configuration, IHttpContextAccessor httpContextAccessor)
         {
             _userManager = userManager;
             _emailSender = emailSender;
@@ -109,6 +109,56 @@ namespace EcommerceProject2API.BBL.Services.Classes
             return true;
 
         }
+
+        public async Task<ForgetPasswordResponse> RequestPasswordRest(ForgetPasswordRequest request)
+        {
+            //find if email is found
+            var user = await _userManager.FindByEmailAsync(request.Email);
+            if (user is null)
+            {
+                return new ForgetPasswordResponse() { Success = false, message = "Email is not Found" };
+
+            }
+            //create code and send to your email and ave in database
+            var random = new Random();
+            var code = random.Next(1000, 9999).ToString();
+            user.CodeRestPassword = code;
+            user.PasswordRestCodeExpiry = DateTime.UtcNow.AddMinutes(15);
+            await _userManager.UpdateAsync(user);
+            await _emailSender.SendEmailAsync(request.Email, "reset password", $"<p>Code is {code}</p>");
+            return new ForgetPasswordResponse() { Success = true, message = "code sent to your email" };
+        }
+        public async Task<ResetPasswordResponse> ResetPasswordAsync(ResetPasswordRequest request)
+        {
+            var user = await _userManager.FindByEmailAsync(request.Email);
+            if (user is null)
+            {
+                return new ResetPasswordResponse() { Success = false, Message = "Email is not Found" };
+
+            }
+            else if(request.Code!=user.CodeRestPassword){
+                return new ResetPasswordResponse() { Success = false, Message = "code is not correct" };
+
+            }
+            else if (user.PasswordRestCodeExpiry < DateTime.UtcNow)
+            {
+                return new ResetPasswordResponse() { Success = false, Message = "code expired" };
+            }
+            var isSamePassword= await _userManager.CheckPasswordAsync(user,request.NewPassword);
+            if (isSamePassword)
+            {
+                return new ResetPasswordResponse() { Success = false, Message = "New Password Must Be Different From Old Password" };
+            }
+            var token = await _userManager.GeneratePasswordResetTokenAsync(user);
+            var result = await _userManager.ResetPasswordAsync(user, token, request.NewPassword);
+            if (!result.Succeeded)
+            {
+                return new ResetPasswordResponse() { Success = false, Message = "password reset failed" };
+            }
+            await _emailSender.SendEmailAsync(request.Email, "change password", "<p> your password is changed </p>");
+            return new ResetPasswordResponse() { Success = true, Message = "password reset success" };
+        }
+
 
 
     }

@@ -38,6 +38,19 @@ namespace EcommerceProject2API.PL.Controllers
             if (isConfirmed) return Ok(new { message = _localizer["OK"].Value });
             return BadRequest();
         }
-
+        [HttpPost("SendCode")]
+        public async Task<IActionResult> RequestPasswordReset(ForgetPasswordRequest request)
+        {
+           var result=await _authService.RequestPasswordRest(request);
+            if (!result.Success) return BadRequest();
+            return Ok(result);
+        }
+        [HttpPost("ResetPassword")]
+        public async Task<IActionResult> ResetPassword(ResetPasswordRequest request)
+        {
+            var result = await _authService.ResetPasswordAsync(request);
+            if (!result.Success) return BadRequest();
+            return Ok(result);
+        }
     }
 }
