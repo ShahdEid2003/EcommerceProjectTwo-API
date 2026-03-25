@@ -16,6 +16,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using EcommerceProject2API.BBL.Mapping;
 
 
 namespace EcommerceProject2API.PL
@@ -109,6 +110,7 @@ namespace EcommerceProject2API.PL
             });
 
             builder.Services.AddAuthorization();//jwt
+            MapsterConfig.MapsterConfigRegister();
 
 
             var app = builder.Build();

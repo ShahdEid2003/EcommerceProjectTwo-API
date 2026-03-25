@@ -39,7 +39,7 @@ namespace EcommerceProject2API.BBL.Services.Classes
 
             var result = await _userManager.CreateAsync(user, request.Password);
             if (!result.Succeeded)
-                return new RegisterResponse() { Success = false, Message = string.Join(", ", result.Errors.Select(e => e.Description)) }
+                return new RegisterResponse() { Success = false, Message ="Error", Errors = result.Errors.Select(e => e.Description).ToList() }
                 ;
             //لازم ننشأ التوكن بعد عملية التسجيل بالداتا بيس بصرش تحطيها فوق قبل فنكشن انشاء الحساب
             var token = await _userManager.GenerateEmailConfirmationTokenAsync(user);

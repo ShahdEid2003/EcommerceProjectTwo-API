@@ -47,7 +47,8 @@ namespace EcommerceProject2API.PL.Controllers
         [HttpGet("")]
         public async Task<IActionResult> Index()
         {
-            var categories = await _ICategoryService.GetAllCategories();
+            var lang = Request.Headers["Accept-Language"].ToString();
+            var categories = await _ICategoryService.GetAllCategories(lang);
 
             return Ok(new { data = categories, _localizer["Success"].Value });
 

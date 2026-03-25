@@ -8,7 +8,9 @@ namespace EcommerceProject2API.DAL.DTO.Response
 {
     public class CategoryResponse
     {
-        public int Id { get; set; }
-        public List<CategoryTranslationResponse> Translations { get; set; }
+        public int cat_id { get; set; }
+        public string UserCreated { get; set; }
+        public string Name { get; set; }
+        //public List<CategoryTranslationResponse> Translations { get; set; }
     }
 }

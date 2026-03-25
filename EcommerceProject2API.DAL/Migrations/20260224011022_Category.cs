@@ -7,6 +7,8 @@ namespace EcommerceProject2API.DAL.Migrations
     /// <inheritdoc />
     public partial class Category : Migration
     {
+        public object Id { get; set; }
+
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {

@@ -12,7 +12,7 @@ namespace EcommerceProject2API.BBL.Services.Interfaces
 {
     public interface ICategoryService
     {
-        public  Task <List<CategoryResponse> >GetAllCategories();
+        public  Task <List<CategoryResponse> >GetAllCategories(string lang);
         public Task<CategoryResponse> CreateCategory(CategoryRequest request);
         public Task<bool> DeleteCategory(int id);
         public Task<CategoryResponse?> GetCategory(Expression<Func<Category, bool>> filiter);

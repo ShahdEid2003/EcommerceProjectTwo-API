@@ -35,10 +35,12 @@ namespace EcommerceProject2API.BBL.Services.Classes
             return await _ICategoryRepository.Delete(category);
         }
 
-        public async Task<List<CategoryResponse>>GetAllCategories()
+        public async Task<List<CategoryResponse>>GetAllCategories(string lang="en")
         {
-            var categories=await _ICategoryRepository.GetAll(new string[] {nameof(Category.Translations)}); //{nameof(Category.Translations)}تكافىء{"translatins"}
-            return categories.Adapt<List<CategoryResponse>>();  
+            var categories=await _ICategoryRepository.GetAll(
+                new string[] {nameof(Category.Translations),nameof(Category.CreatedBy)}); //{nameof(Category.Translations)}تكافىء{"translatins"}
+            return categories.BuildAdapter().AddParameters("lang",lang)
+                             .AdaptToType<List<CategoryResponse>>();  
 
         }
         public async Task<CategoryResponse?> GetCategory(Expression<Func<Category, bool>> filiter)
