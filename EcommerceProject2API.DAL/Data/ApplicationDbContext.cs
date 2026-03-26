@@ -17,7 +17,9 @@ namespace EcommerceProject2API.DAL.Data
         private readonly IHttpContextAccessor _httpContextAccessor;
 
         public DbSet<Category> Categories { get; set; }
-        public DbSet<CategoryTranslations> CategoriesTranslations { get; set; } 
+        public DbSet<CategoryTranslations> CategoriesTranslations { get; set; }
+        public DbSet<Product> Products { get; set; }
+        public DbSet<ProductTranslations> ProductsTranslations { get; set; }
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options,IHttpContextAccessor httpContextAccessor)
         : base(options)
         {
@@ -30,8 +32,17 @@ namespace EcommerceProject2API.DAL.Data
             builder.Entity<ApplicationUser>().ToTable("Users");
             builder.Entity<IdentityRole>().ToTable("Roles");
             builder.Entity<IdentityUserRole<string>>().ToTable("UsersRoles");
+            //ربط كل Category أو Product بالمستخدم اللي أنشأها
+            builder.Entity<Category>().HasOne(p => p.CreatedBy).WithMany()
+                .HasForeignKey(p => p.CreatedById).OnDelete(DeleteBehavior.Restrict);
+            builder.Entity<Category>().HasOne(p => p.UpdatedBy).WithMany()
+                .HasForeignKey(p => p.UpdatedById).OnDelete(DeleteBehavior.Restrict);
+            builder.Entity<Product>().HasOne(p => p.CreatedBy).WithMany()
+                .HasForeignKey(p => p.CreatedById).OnDelete(DeleteBehavior.Restrict);
+            builder.Entity<Product>().HasOne(p => p.UpdatedBy).WithMany()
+                .HasForeignKey(p => p.UpdatedById).OnDelete(DeleteBehavior.Restrict);
 
-           
+
         }
         public override Task<int> SaveChangesAsync( CancellationToken cancellationToken = default)
         {

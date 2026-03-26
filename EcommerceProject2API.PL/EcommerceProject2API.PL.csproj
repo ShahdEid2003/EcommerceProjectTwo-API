@@ -20,4 +20,8 @@
     <ProjectReference Include="..\EcommerceProject2API.BBL\EcommerceProject2API.BBL.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="images\" />
+  </ItemGroup>
+
 </Project>
