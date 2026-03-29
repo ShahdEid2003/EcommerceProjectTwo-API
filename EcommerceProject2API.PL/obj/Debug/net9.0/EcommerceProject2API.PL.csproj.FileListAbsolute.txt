@@ -181,3 +181,4 @@ C:\Users\user\Documents\Full Stack\BackEnd\API\EcommerceProject2API.PL\Ecommerce
 C:\Users\user\Documents\Full Stack\BackEnd\API\EcommerceProject2API.PL\EcommerceProject2API.PL\bin\Debug\net9.0\Microsoft.Extensions.Identity.Core.dll
 C:\Users\user\Documents\Full Stack\BackEnd\API\EcommerceProject2API.PL\EcommerceProject2API.PL\bin\Debug\net9.0\Microsoft.Extensions.Identity.Stores.dll
 C:\Users\user\Documents\Full Stack\BackEnd\API\EcommerceProject2API.PL\EcommerceProject2API.PL\bin\Debug\net9.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\user\Documents\Full Stack\BackEnd\API\EcommerceProject2API.PL\EcommerceProject2API.PL\bin\Debug\net9.0\EcommerceProject2API.PL.staticwebassets.runtime.json

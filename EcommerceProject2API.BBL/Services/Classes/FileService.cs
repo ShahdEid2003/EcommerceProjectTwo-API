@@ -19,7 +19,7 @@ namespace EcommerceProject2API.BBL.Services.Classes
                 var fileName = Guid.NewGuid().ToString() + Path.GetExtension(file.FileName);
 
                 // تحديد المسار الذي سيتم حفظ الملف فيه داخل مجلد images
-                var filePath = Path.Combine(Directory.GetCurrentDirectory(), "images", fileName);
+                var filePath = Path.Combine(Directory.GetCurrentDirectory(),"wwwroot", "images", fileName);
 
                 // إنشاء ملف جديد في المسار المحدد
                 using (var stream = File.Create(filePath))

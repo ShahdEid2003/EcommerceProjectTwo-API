@@ -70,7 +70,9 @@ namespace EcommerceProject2API.PL
             builder.Services.AddScoped<IAuthenticationService, AuthenticationService>();
             builder.Services.AddScoped<ISeedData, RoleSeedData>();
             builder.Services.AddTransient<BBL.Services.Interfaces.IEmailSender, EmailSender>();
-
+            builder.Services.AddScoped<IFileService, FileService>();
+            builder.Services.AddScoped<IProductRepository, ProductRepository>();
+            builder.Services.AddScoped<IProductService, ProductService>();
 
             builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
             {
@@ -123,10 +125,11 @@ namespace EcommerceProject2API.PL
             }
             app.UseCors(MyAllowSpecificOrigins);
             app.UseHttpsRedirection();
+            
             app.UseAuthentication();//jwt
             app.UseAuthorization();
 
-
+            app.UseStaticFiles();//Â«Ì ⁄‘«‰ «·’Ê— „‰ «·(wwwroot)  ÊŒ– «·’Ê—…
             app.MapControllers();
             using (var scope = app.Services.CreateScope())
             {

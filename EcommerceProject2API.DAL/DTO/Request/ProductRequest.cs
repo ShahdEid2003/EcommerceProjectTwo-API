@@ -16,6 +16,6 @@ namespace EcommerceProject2API.DAL.DTO.Request
         public int Qauntity { get; set; }
         public int CategoryId { get; set; }
         public IFormFile MainImg { get; set; }
-        public List<ProductTranslations> Translations { get; set; }
+        public List<ProductTranslationRequest> Translations { get; set; }
     }
 }
