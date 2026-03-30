@@ -73,6 +73,8 @@ namespace EcommerceProject2API.PL
             builder.Services.AddScoped<IFileService, FileService>();
             builder.Services.AddScoped<IProductRepository, ProductRepository>();
             builder.Services.AddScoped<IProductService, ProductService>();
+            builder.Services.AddScoped<IBrandRepository, BrandRepository>();
+            builder.Services.AddScoped<IBrandService, BrandService>();
 
             builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
             {

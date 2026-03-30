@@ -45,8 +45,9 @@ namespace EcommerceProject2API.BBL.Services.Classes
         }
         public async Task<CategoryResponse?> GetCategory(Expression<Func<Category, bool>> filiter)
         {
-            var category = await _ICategoryRepository.GetOne(filiter,new string[] { nameof(Category.Translations) }); //{nameof(Category.Translations)}تكافىء{"translatins"}
-            return category.Adapt<CategoryResponse>(); ;
+            var category = await _ICategoryRepository.GetOne(filiter,new string[] { nameof(Category.Translations), nameof(Category.CreatedBy) }); //{nameof(Category.Translations)}تكافىء{"translatins"}
+            if (category == null) return null;
+            return category.Adapt<CategoryResponse>(); 
 
         }
     }

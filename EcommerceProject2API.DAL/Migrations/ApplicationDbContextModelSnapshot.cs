@@ -103,6 +103,66 @@ namespace EcommerceProject2API.DAL.Migrations
                     b.ToTable("Users", (string)null);
                 });
 
+            modelBuilder.Entity("EcommerceProject2API.DAL.Models.Brand", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("CreatedById")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("LogoImg")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UpdatedById")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime?>("UpdatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CreatedById");
+
+                    b.HasIndex("UpdatedById");
+
+                    b.ToTable("Brands");
+                });
+
+            modelBuilder.Entity("EcommerceProject2API.DAL.Models.BrandTranslations", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("BrandId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Language")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BrandId");
+
+                    b.ToTable("BrandsTranslations");
+                });
+
             modelBuilder.Entity("EcommerceProject2API.DAL.Models.Category", b =>
                 {
                     b.Property<int>("Id")
@@ -167,6 +227,9 @@ namespace EcommerceProject2API.DAL.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<int?>("BrandId")
+                        .HasColumnType("int");
+
                     b.Property<int>("CategoryId")
                         .HasColumnType("int");
 
@@ -200,6 +263,8 @@ namespace EcommerceProject2API.DAL.Migrations
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("BrandId");
 
                     b.HasIndex("CategoryId");
 
@@ -373,6 +438,35 @@ namespace EcommerceProject2API.DAL.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("EcommerceProject2API.DAL.Models.Brand", b =>
+                {
+                    b.HasOne("EcommerceProject2API.DAL.Models.ApplicationUser", "CreatedBy")
+                        .WithMany()
+                        .HasForeignKey("CreatedById")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("EcommerceProject2API.DAL.Models.ApplicationUser", "UpdatedBy")
+                        .WithMany()
+                        .HasForeignKey("UpdatedById")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.Navigation("CreatedBy");
+
+                    b.Navigation("UpdatedBy");
+                });
+
+            modelBuilder.Entity("EcommerceProject2API.DAL.Models.BrandTranslations", b =>
+                {
+                    b.HasOne("EcommerceProject2API.DAL.Models.Brand", "Brand")
+                        .WithMany("Translations")
+                        .HasForeignKey("BrandId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Brand");
+                });
+
             modelBuilder.Entity("EcommerceProject2API.DAL.Models.Category", b =>
                 {
                     b.HasOne("EcommerceProject2API.DAL.Models.ApplicationUser", "CreatedBy")
@@ -404,6 +498,10 @@ namespace EcommerceProject2API.DAL.Migrations
 
             modelBuilder.Entity("EcommerceProject2API.DAL.Models.Product", b =>
                 {
+                    b.HasOne("EcommerceProject2API.DAL.Models.Brand", null)
+                        .WithMany("Products")
+                        .HasForeignKey("BrandId");
+
                     b.HasOne("EcommerceProject2API.DAL.Models.Category", "Category")
                         .WithMany("Products")
                         .HasForeignKey("CategoryId")
@@ -488,6 +586,13 @@ namespace EcommerceProject2API.DAL.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("EcommerceProject2API.DAL.Models.Brand", b =>
+                {
+                    b.Navigation("Products");
+
+                    b.Navigation("Translations");
                 });
 
             modelBuilder.Entity("EcommerceProject2API.DAL.Models.Category", b =>

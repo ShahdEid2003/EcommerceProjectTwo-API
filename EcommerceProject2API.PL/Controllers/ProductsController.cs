@@ -28,6 +28,14 @@ namespace EcommerceProject2API.PL.Controllers
             return Ok(new { data = products, _localizer["Success"].Value });
 
         }
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetById(int id)
+        {
+            var product = await _IProductService.GetProduct(p => p.Id == id);
+
+            return Ok(new { data = product, _localizer["Success"].Value });
+
+        }
         [HttpPost("")]
         [Authorize]
         public async Task<IActionResult> Create([FromForm]ProductRequest request)
@@ -38,9 +46,18 @@ namespace EcommerceProject2API.PL.Controllers
             return
                 Ok(new
                 {
-                  
                     message = _localizer["Success"].Value
                 });
+
+
+        }
+        [HttpDelete("{id}")]
+        [Authorize]
+        public async Task<IActionResult> DeleteProduct(int id)
+        {
+            var result = await _IProductService.DeleteProduct(id);
+            if (!result) return NotFound(new { messege = _localizer["NotFound"].Value });
+            return Ok(new { messege = _localizer["Success"].Value }); ;
 
 
         }

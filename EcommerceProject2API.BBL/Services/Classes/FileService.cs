@@ -10,6 +10,14 @@ namespace EcommerceProject2API.BBL.Services.Classes
 {
     public class FileService : IFileService
     {
+        public void Delete(string fileName)
+        {
+            var path= Path.Combine(Directory.GetCurrentDirectory(),"wwwroot","images", fileName);
+            if (File.Exists(path)) File.Delete(path);
+        }
+
+       
+
         public async Task<string?> UploadeAsync(IFormFile file)
         {
             // التأكد أن الملف موجود وحجمه أكبر من صفر

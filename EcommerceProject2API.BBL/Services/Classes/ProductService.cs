@@ -9,6 +9,7 @@ using Mapster;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -41,5 +42,21 @@ namespace EcommerceProject2API.BBL.Services.Classes
             var products= await _IProductRepository.GetAll(new string[] { nameof(Product.Translations), nameof(Product.CreatedBy) });
             return products.Adapt<List<ProductResponse>>();
         }
+        public async Task<ProductResponse?> GetProduct(Expression<Func<Product, bool>> filiter)
+        {
+            var product = await _IProductRepository.GetOne(filiter, new string[] { nameof(Product.Translations),nameof(Product.CreatedBy) }); //{nameof(Category.Translations)}تكافىء{"translatins"}
+            if (product == null) return null;
+            return product.Adapt<ProductResponse>(); ;
+
+        }
+        public async Task<bool> DeleteProduct(int id)
+        {
+
+            var product= await _IProductRepository.GetOne(p => p.Id == id);
+            if (product == null) return false;
+            _IFileService.Delete(product.MainImg);
+            return await _IProductRepository.Delete(product);
+        }
+
     }
 }

@@ -20,6 +20,8 @@ namespace EcommerceProject2API.DAL.Data
         public DbSet<CategoryTranslations> CategoriesTranslations { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<ProductTranslations> ProductsTranslations { get; set; }
+        public DbSet<Brand> Brands { get; set; }
+        public DbSet<BrandTranslations> BrandsTranslations { get; set; }
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options,IHttpContextAccessor httpContextAccessor)
         : base(options)
         {
@@ -33,14 +35,37 @@ namespace EcommerceProject2API.DAL.Data
             builder.Entity<IdentityRole>().ToTable("Roles");
             builder.Entity<IdentityUserRole<string>>().ToTable("UsersRoles");
             //ربط كل Category أو Product بالمستخدم اللي أنشأها
-            builder.Entity<Category>().HasOne(p => p.CreatedBy).WithMany()
-                .HasForeignKey(p => p.CreatedById).OnDelete(DeleteBehavior.Restrict);
-            builder.Entity<Category>().HasOne(p => p.UpdatedBy).WithMany()
-                .HasForeignKey(p => p.UpdatedById).OnDelete(DeleteBehavior.Restrict);
-            builder.Entity<Product>().HasOne(p => p.CreatedBy).WithMany()
-                .HasForeignKey(p => p.CreatedById).OnDelete(DeleteBehavior.Restrict);
-            builder.Entity<Product>().HasOne(p => p.UpdatedBy).WithMany()
-                .HasForeignKey(p => p.UpdatedById).OnDelete(DeleteBehavior.Restrict);
+            builder.Entity<Category>()
+                .HasOne(p => p.CreatedBy)
+                 .WithMany()
+                .HasForeignKey(p => p.CreatedById)
+                .OnDelete(DeleteBehavior.Restrict);
+            builder.Entity<Category>()
+                .HasOne(p => p.UpdatedBy)
+                .WithMany()
+                .HasForeignKey(p => p.UpdatedById)
+                .OnDelete(DeleteBehavior.Restrict);
+            builder.Entity<Product>()
+                .HasOne(p => p.CreatedBy)
+                .WithMany()
+                .HasForeignKey(p => p.CreatedById)
+                .OnDelete(DeleteBehavior.Restrict);
+            builder.Entity<Product>()
+                .HasOne(p => p.UpdatedBy)
+                .WithMany()
+                .HasForeignKey(p => p.UpdatedById)
+                .OnDelete(DeleteBehavior.Restrict);
+            builder.Entity<Brand>()
+            .HasOne(p => p.CreatedBy)
+            .WithMany()
+            .HasForeignKey(p => p.CreatedById)
+            .OnDelete(DeleteBehavior.Restrict);
+
+            builder.Entity<Brand>()
+                .HasOne(p => p.UpdatedBy)
+                .WithMany()
+                .HasForeignKey(p => p.UpdatedById)
+                .OnDelete(DeleteBehavior.Restrict);
 
 
         }
