@@ -249,6 +249,11 @@
         "IsRequired": false
       },
       {
+        "Name": "BrandId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
         "Name": "MainImg",
         "Type": "Microsoft.AspNetCore.Http.IFormFile",
         "IsRequired": false
