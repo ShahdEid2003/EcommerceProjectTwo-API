@@ -57,6 +57,59 @@ namespace EcommerceProject2API.BBL.Services.Classes
             _IFileService.Delete(product.MainImg);
             return await _IProductRepository.Delete(product);
         }
+        public async Task<bool> UpdateProduct(int id,ProductUpdateRequest request)
+        {
 
+            var product = await _IProductRepository.GetOne(p => p.Id == id,new string[] {
+                nameof(Product.Translations) });
+            
+            if (product == null) return false;
+            request.Adapt<Product>();
+            if (request.Translations != null)
+            {
+                foreach (var translationRequest in request.Translations)
+                {
+                    var existing = product.Translations
+                        .FirstOrDefault(t => t.Language == translationRequest.Language);
+
+                    if (existing != null)
+                    {
+                        if (translationRequest.Name != null)
+                        {
+                            existing.Name = translationRequest.Name;
+                        }
+
+                        if (translationRequest.Description != null)
+                        {
+                            existing.Description = translationRequest.Description;
+                        }
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+            }
+            var oldImage = product.MainImg;
+            if (request.MainImg != null)
+            {
+                _IFileService.Delete(product.MainImg);
+
+                product.MainImg = await _IFileService.UploadeAsync(request.MainImg);
+            }
+            else
+            {
+                product.MainImg = oldImage;
+            }
+            return await _IProductRepository.Update(product);
+        }
+
+        public async Task<bool> ToggleStatus(int id)
+        {
+            var product=await _IProductRepository.GetOne(p=>p.Id == id);
+            if (product == null) return false;
+            product.Status = product.Status == EntityStatus.Active ? EntityStatus.Inactive : EntityStatus.Active;
+            return await _IProductRepository.Update(product);
+        }
     }
 }

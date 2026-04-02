@@ -67,7 +67,7 @@ namespace EcommerceProject2API.DAL.Data
                 .HasForeignKey(p => p.UpdatedById)
                 .OnDelete(DeleteBehavior.Restrict);
 
-
+        
         }
         public override Task<int> SaveChangesAsync( CancellationToken cancellationToken = default)
         {

@@ -26,13 +26,16 @@ namespace EcommerceProject2API.BBL.Services.Classes
         public async Task CreateBrand(BrandRequest request)
         {
             var brand = request.Adapt<Brand>();
+           
             if (request.LogoImg != null)
             {
                 var ImagePath = await _IFileService.UploadeAsync(request.LogoImg);
                 brand.LogoImg= ImagePath;
             }
+
             await _IBrandRepository.Create(brand);
         }
+       
         public async Task<List<BrandResponse>> GetAllBrands()
         {
             var brands = await _IBrandRepository.GetAll(new string[] { nameof(Brand.Translations), nameof(Brand.CreatedBy) });

@@ -61,5 +61,26 @@ namespace EcommerceProject2API.PL.Controllers
 
 
         }
+        [HttpPatch("{id}")]
+        [Authorize]
+        public async Task<IActionResult> UpdateProduct(int id,[FromForm] ProductUpdateRequest request)
+        {
+            var result = await _IProductService.UpdateProduct(id,request);
+            if (!result) return NotFound(new { messege = _localizer["NotFound"].Value });
+            return Ok(new { messege = _localizer["Success"].Value }); ;
+
+
+        }
+        [HttpPatch("{id}/status")]
+        [Authorize]
+        public async Task<IActionResult> ChangeStatus(int id)
+        {
+            var updated = await _IProductService.ToggleStatus(id);
+
+            if (!updated)
+                return BadRequest();
+
+            return Ok();
+        }
     }
 }

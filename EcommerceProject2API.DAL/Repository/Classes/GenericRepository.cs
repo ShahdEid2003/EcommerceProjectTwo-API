@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -34,13 +35,17 @@ namespace EcommerceProject2API.DAL.Repository.Classes
 
         }
 
-        public async Task<List<T>> GetAll(string[]? includes = null)
+        public async Task<List<T>> GetAll(Expression<Func<T, bool>> filiter=null, string[]? includes = null)
         {
             
             // هاي عشان انكلود مرات بتكون نل واحنا بدنا نعمل اشي عام يزبط لكل الريبو زيتوري
             // Iquerable الفكرة اعمل انكلون على مستوى السيرفر احسن عشان هيك نوعها
             //بعدها بفحص اذا كان مش نل يطبق شرط الانكلون ويرجع الداتا بناء عالشرط وبنفس الوقت اذا كانت نل برجع الداتا بدون الشرط 
             IQueryable<T> query = _context.Set<T>();
+            if (filiter!= null)
+            {
+               query = query.Where(filiter);
+            }
             if (includes != null)
             {
                 foreach (string include in includes)
@@ -64,6 +69,12 @@ namespace EcommerceProject2API.DAL.Repository.Classes
                 }
             }
             return await query.FirstOrDefaultAsync(filiter);
+        }
+        public async Task<bool> Update(T entity)
+        {
+            _context.Update(entity);
+            var affected =await _context.SaveChangesAsync();    
+            return affected > 0;
         }
     }
 }

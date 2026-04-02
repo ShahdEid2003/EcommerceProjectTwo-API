@@ -9,9 +9,10 @@ namespace EcommerceProject2API.DAL.Repository.Interfaces
 {
     public interface IGenericRepository<T> where T :class
     {
-        Task<List<T>> GetAll(string[]? includes = null);
+        Task<List<T>> GetAll(Expression<Func<T, bool>> filiter = null,string[]? includes = null);
         Task<T> Create(T entity);
         Task<bool> Delete(T entity);
         Task<T?> GetOne(Expression <Func <T,bool>> filiter,string[]? includes = null);
+        Task<bool> Update(T entity);
     }
 }

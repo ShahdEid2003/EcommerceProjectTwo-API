@@ -40,17 +40,16 @@ namespace EcommerceProject2API.PL.Controllers
         [Authorize]
         public async Task<IActionResult> Create([FromForm] BrandRequest request)
         {
-            await _IBrandService.CreateBrand(request);
 
+            await _IBrandService.CreateBrand(request);
 
             return
                 Ok(new
-                { 
+                {
                     message = _localizer["Success"].Value
                 });
-
-
         }
+
         [HttpDelete("{id}")]
         [Authorize]
         public async Task<IActionResult> DeleteBrand(int id)

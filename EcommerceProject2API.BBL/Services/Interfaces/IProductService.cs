@@ -16,5 +16,7 @@ namespace EcommerceProject2API.BBL.Services.Interfaces
         public Task<List<ProductResponse>> GetAllProductss();
         public Task<ProductResponse?> GetProduct(Expression<Func<Product, bool>> filiter);
         public  Task<bool> DeleteProduct(int id);
+        public  Task<bool> UpdateProduct(int id, ProductUpdateRequest request);
+        public Task<bool> ToggleStatus(int id);
     }
 }
