@@ -37,7 +37,7 @@ namespace EcommerceProject2API.BBL.Services.Classes
 
         public async Task<List<CategoryResponse>>GetAllCategories(string lang="en")
         {
-            var categories=await _ICategoryRepository.GetAll(
+            var categories=await _ICategoryRepository.GetAll(c => c.Status == EntityStatus.Active,
                 new string[] {nameof(Category.Translations),nameof(Category.CreatedBy)}); //{nameof(Category.Translations)}تكافىء{"translatins"}
             return categories.BuildAdapter().AddParameters("lang",lang)
                              .AdaptToType<List<CategoryResponse>>();  

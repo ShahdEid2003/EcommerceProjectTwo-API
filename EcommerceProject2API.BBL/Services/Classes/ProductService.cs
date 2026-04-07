@@ -39,7 +39,7 @@ namespace EcommerceProject2API.BBL.Services.Classes
 
         public async Task<List<ProductResponse>> GetAllProductss()
         {
-            var products= await _IProductRepository.GetAll(new string[] { nameof(Product.Translations), nameof(Product.CreatedBy) });
+            var products= await _IProductRepository.GetAll(p=>p.Status==EntityStatus.Active, new string[] { nameof(Product.Translations), nameof(Product.CreatedBy) });
             return products.Adapt<List<ProductResponse>>();
         }
         public async Task<ProductResponse?> GetProduct(Expression<Func<Product, bool>> filiter)

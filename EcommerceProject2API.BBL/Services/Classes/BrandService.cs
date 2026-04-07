@@ -38,7 +38,7 @@ namespace EcommerceProject2API.BBL.Services.Classes
        
         public async Task<List<BrandResponse>> GetAllBrands()
         {
-            var brands = await _IBrandRepository.GetAll(new string[] { nameof(Brand.Translations), nameof(Brand.CreatedBy) });
+            var brands = await _IBrandRepository.GetAll(b => b.Status == EntityStatus.Active, new string[] { nameof(Brand.Translations), nameof(Brand.CreatedBy) });
             return brands.Adapt<List<BrandResponse>>();
         }
         public async Task<bool> DeleteBrand(int id)
