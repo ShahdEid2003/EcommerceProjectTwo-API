@@ -5,5 +5,6 @@ wwwroot\images\c62ff0b1-eb28-4788-992c-a4362ceb8101.jpg
 wwwroot\images\cab89066-ffd1-4f80-9ae0-445e58272f3a.jpg
 wwwroot\images\d1333c94-0899-44b4-acb0-1ff61317535a.jpg
 wwwroot\images\d24455ac-4146-4593-b5b8-2700c21f0cef.jpg
+wwwroot\images\daca5ccc-be51-4db6-a959-d5b71ab5c1f1.jpg
 wwwroot\images\ee7caa19-43dc-40af-a6e9-4af2c817b374.jpg
 wwwroot\images\eec77fa9-a400-46b5-91d9-342dc807be17.jpg

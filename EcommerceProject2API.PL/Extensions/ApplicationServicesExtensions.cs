@@ -32,7 +32,8 @@ namespace EcommerceProject2API.PL.Extensions
             Services.AddScoped<IProductService, ProductService>();
             Services.AddScoped<IBrandRepository, BrandRepository>();
             Services.AddScoped<IBrandService, BrandService>();
-
+            Services.AddScoped<ICartService, CartService>();
+            Services.AddScoped<ICartRepository, CartRepository>();
             return Services;
         }
     }

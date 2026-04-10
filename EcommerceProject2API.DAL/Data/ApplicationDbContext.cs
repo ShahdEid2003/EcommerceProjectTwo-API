@@ -22,6 +22,7 @@ namespace EcommerceProject2API.DAL.Data
         public DbSet<ProductTranslations> ProductsTranslations { get; set; }
         public DbSet<Brand> Brands { get; set; }
         public DbSet<BrandTranslations> BrandsTranslations { get; set; }
+        public DbSet<Cart>Carts { get; set; }
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options,IHttpContextAccessor httpContextAccessor)
         : base(options)
         {

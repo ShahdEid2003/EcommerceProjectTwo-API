@@ -166,6 +166,24 @@ namespace EcommerceProject2API.DAL.Migrations
                     b.ToTable("BrandsTranslations");
                 });
 
+            modelBuilder.Entity("EcommerceProject2API.DAL.Models.Cart", b =>
+                {
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("Count")
+                        .HasColumnType("int");
+
+                    b.HasKey("ProductId", "UserId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Carts");
+                });
+
             modelBuilder.Entity("EcommerceProject2API.DAL.Models.Category", b =>
                 {
                     b.Property<int>("Id")
@@ -474,6 +492,25 @@ namespace EcommerceProject2API.DAL.Migrations
                         .IsRequired();
 
                     b.Navigation("Brand");
+                });
+
+            modelBuilder.Entity("EcommerceProject2API.DAL.Models.Cart", b =>
+                {
+                    b.HasOne("EcommerceProject2API.DAL.Models.Product", "Product")
+                        .WithMany()
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("EcommerceProject2API.DAL.Models.ApplicationUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Product");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("EcommerceProject2API.DAL.Models.Category", b =>
