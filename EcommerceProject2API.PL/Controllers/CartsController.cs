@@ -3,6 +3,7 @@ using EcommerceProject2API.DAL.DTO.Request;
 using EcommerceProject2API.PL.Resources;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Localization;
 using System.Security.Claims;
@@ -26,14 +27,12 @@ namespace EcommerceProject2API.PL.Controllers
         public async Task<IActionResult> AddToCart(AddToCartRequest request)
         {
             var UserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-           await _ICartService.AddToCart(request, UserId);
+           var result= await _ICartService.AddToCart(request, UserId);
 
-
+            if (!result) return NotFound(new { messege = _localizer["NotFound"].Value });
             return
                 Ok(new
-                {
-                   
-                    message = _localizer["Success"].Value
+                {  message = _localizer["Success"].Value
                 });
 
 

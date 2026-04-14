@@ -15,21 +15,27 @@ namespace EcommerceProject2API.BBL.Services.Classes
     public class CartService : ICartService
     {
         private readonly ICartRepository _cartRepository;
-      
-        public CartService(ICartRepository cartRepository)
+        private readonly IProductRepository _productRepository;
+        public CartService(ICartRepository cartRepository, IProductRepository productRepository)
         {
             _cartRepository = cartRepository;
+            _productRepository = productRepository;
             
         }
-        public async Task AddToCart(AddToCartRequest request, string UserId)
+        public async Task <bool> AddToCart(AddToCartRequest request, string UserId)
         {
+            var product = await _productRepository.GetOne(p => p.Id == request.ProductId);
+            if (product == null) { return false; }
             var ExistingItem = await _cartRepository.GetOne(
                     c => c.ProductId == request.ProductId && c.UserId == UserId
             );
+            var currentCount=ExistingItem?.Count ?? 0;
+            var newCount=currentCount+request.Count;
+            if (newCount > product.Qauntity) { return false; }
 
             if (ExistingItem != null)
             {
-                ExistingItem.Count += request.Count;
+                ExistingItem.Count = newCount;
                 await _cartRepository.Update(ExistingItem);
             }
             else
@@ -38,6 +44,7 @@ namespace EcommerceProject2API.BBL.Services.Classes
                 cartItem.UserId = UserId;
                 await _cartRepository.Create(cartItem);
             }
+            return true;
 
         }
     }
