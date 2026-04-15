@@ -40,7 +40,14 @@ namespace EcommerceProject2API.BBL.Mapping
                .Where(t => t.Language == CultureInfo.CurrentCulture.Name)
                .Select(t => t.Name).FirstOrDefault() ?? "Default Brand Name")
                .Map(dest => dest.LogoImg, source => $"https://localhost:7186/images/{source.LogoImg}");
-         
+
+            TypeAdapterConfig<Cart, CartResponse>.NewConfig()
+                .Map(dest => dest.ProductName, source => source.Product.Translations
+                .Where(t => t.Language == CultureInfo.CurrentCulture.Name)
+                .Select(t => t.Name).FirstOrDefault())
+                .Map(dest => dest.MainImg, source => $"https://localhost:7186/images/{source.Product.MainImg}")
+                .Map(dest => dest.Price, source => source.Product.Price)
+                .Map(dest => dest.Discount, source => source.Product.Discount);
 
         }
     }

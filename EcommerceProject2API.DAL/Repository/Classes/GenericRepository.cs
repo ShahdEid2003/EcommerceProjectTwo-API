@@ -34,6 +34,13 @@ namespace EcommerceProject2API.DAL.Repository.Classes
             return affected > 0;
 
         }
+        public async Task<bool> DeleteRange(List<T> entites)
+        {
+            _context.RemoveRange(entites);
+            var affected = await _context.SaveChangesAsync();
+            return affected > 0;
+
+        }
 
         public async Task<List<T>> GetAll(Expression<Func<T, bool>> filiter=null, string[]? includes = null)
         {

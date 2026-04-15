@@ -1,5 +1,6 @@
 ﻿using EcommerceProject2API.BBL.Services.Interfaces;
 using EcommerceProject2API.DAL.DTO.Request;
+using EcommerceProject2API.DAL.DTO.Response;
 using EcommerceProject2API.DAL.Models;
 using EcommerceProject2API.DAL.Repository.Classes;
 using EcommerceProject2API.DAL.Repository.Interfaces;
@@ -45,6 +46,38 @@ namespace EcommerceProject2API.BBL.Services.Classes
                 await _cartRepository.Create(cartItem);
             }
             return true;
+
+        }
+
+        public async Task<bool> ClearCart(string UserId)
+        {
+            var cartItems = await _cartRepository.GetAll(c => c.UserId == UserId);
+           if (cartItems == null) { return false; }
+            return await _cartRepository.DeleteRange(cartItems);
+        }
+
+        public async Task<List<CartResponse>> GetCart(string UserId)
+        {
+          var cart= await _cartRepository.GetAll(c=>c.UserId==UserId, new string[] { nameof(Cart.Product),$"{ nameof(Cart.Product)}.{nameof(Product.Translations)}" });
+            return cart.Adapt<List<CartResponse>>();
+        }
+
+        public async Task<bool> RemoveItem(int productId, string UserId)
+        {
+            var cartItem = await _cartRepository.GetOne(c => c.ProductId == productId && c.UserId == UserId);
+            if (cartItem == null) return false;
+            
+            return await _cartRepository.Delete(cartItem);
+        }
+
+        public async Task<bool> UpdateQuantity(int productId, int count, string UserId)
+        {
+            var Item = await _cartRepository.GetOne(c => c.ProductId == productId && c.UserId == UserId);
+            if (Item == null) return false;
+            var product=await _productRepository.GetOne(p=>p.Id==productId);
+            if (count > product.Qauntity) { return false; }
+            Item.Count= count;
+            return await _cartRepository.Update(Item);
 
         }
     }

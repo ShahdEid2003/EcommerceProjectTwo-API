@@ -14,5 +14,6 @@ namespace EcommerceProject2API.DAL.Repository.Interfaces
         Task<bool> Delete(T entity);
         Task<T?> GetOne(Expression <Func <T,bool>> filiter,string[]? includes = null);
         Task<bool> Update(T entity);
+         Task<bool> DeleteRange(List<T> entites);
     }
 }
