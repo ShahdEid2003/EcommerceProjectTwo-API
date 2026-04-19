@@ -45,7 +45,7 @@ namespace EcommerceProject2API.PL
             //Localization
             builder.Services.AddLocalizationServices();
             //ApplicationServices
-            builder.Services.AddAplicationServices();
+            builder.Services.AddAplicationServices(builder.Configuration);
 
             builder.Services.AddAuthorization();//jwt
             MapsterConfig.MapsterConfigRegister();

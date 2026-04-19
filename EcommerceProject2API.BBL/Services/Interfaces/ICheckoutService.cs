@@ -1,4 +1,6 @@
-﻿using System;
+﻿using EcommerceProject2API.DAL.DTO.Request;
+using EcommerceProject2API.DAL.DTO.Response;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +10,6 @@ namespace EcommerceProject2API.BBL.Services.Interfaces
 {
     public interface ICheckoutService
     {
+        Task<CheckoutResponse> ProcessCheckout(string UserId, CheckoutRequest request);
     }
 }
