@@ -17,23 +17,25 @@ namespace EcommerceProject2API.BBL.Services.Classes
     public class CheckoutService : ICheckoutService
     {
         private readonly ICartRepository _cartRepository;
+        private readonly IOrderRepository _orderRepository;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public CheckoutService(ICartRepository cartRepository,UserManager<ApplicationUser> userManager,IHttpContextAccessor httpContextAccessor)
+        public CheckoutService(ICartRepository cartRepository,IOrderRepository orderRepository,UserManager<ApplicationUser> userManager,IHttpContextAccessor httpContextAccessor)
         {
             _cartRepository = cartRepository;
+            _orderRepository = orderRepository;
             _userManager = userManager;
             _httpContextAccessor = httpContextAccessor;
         }
-        public async Task<CheckoutResponse> ProcessCheckout(string UserId, CheckoutRequest request)
+        public async Task<CheckoutResponse> ProcessCheckout(string userId, CheckoutRequest request)
         {
-            var cartItems = await _cartRepository.GetAll(c => c.UserId == UserId, new [] { nameof(Cart.Product), $"{nameof(Cart.Product)}.{nameof(Product.Translations)}" });
+            var cartItems = await _cartRepository.GetAll(c => c.UserId == userId, new [] { nameof(Cart.Product), $"{nameof(Cart.Product)}.{nameof(Product.Translations)}" });
             if (!cartItems.Any())
             {
                 return new CheckoutResponse { Success = false, Error = "Cart is empty" };
             }
-            var user=await _userManager.FindByIdAsync(UserId);
+            var user=await _userManager.FindByIdAsync(userId);
             var city = request.City ?? user.City;//if <request.city> is null then take the value from <user.city>
             if (city is null)
             {
@@ -56,6 +58,24 @@ namespace EcommerceProject2API.BBL.Services.Classes
                    return new CheckoutResponse { Success = false, Error = "Doesn’t have enough stock" };
                 }
             }
+            var order = new Order()
+            {
+                UserId = userId,
+                City = city,
+                Street = street,
+                PhoneNumber = phoneNumber,
+                PaymentMethod = request.PaymentMethod,
+                AmountPaid = cartItems.Sum(c => c.Product.Price * c.Count),
+                OrderItems = cartItems.Select(c => new OrderItem()
+                {
+                    ProductId = c.ProductId,
+                    UnitPrice = c.Product.Price,
+                    TotalPrice = c.Product.Price * c.Count,
+                    Quantity = c.Count
+                }).ToList()
+            };
+            await _orderRepository.Create(order);   
+         
             if (request.PaymentMethod == PaymentMethodEnum.Cash)
             {
                 return new CheckoutResponse { Success = true };
