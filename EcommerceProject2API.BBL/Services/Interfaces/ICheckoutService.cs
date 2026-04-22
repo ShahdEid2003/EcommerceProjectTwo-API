@@ -11,5 +11,6 @@ namespace EcommerceProject2API.BBL.Services.Interfaces
     public interface ICheckoutService
     {
         Task<CheckoutResponse> ProcessCheckout(string UserId, CheckoutRequest request);
+        Task<CheckoutResponse>HandleSuccess(string sessionId);
     }
 }

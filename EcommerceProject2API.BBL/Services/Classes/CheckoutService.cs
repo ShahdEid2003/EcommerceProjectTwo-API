@@ -1,6 +1,7 @@
 ﻿using EcommerceProject2API.BBL.Services.Interfaces;
 using EcommerceProject2API.DAL.DTO.Request;
 using EcommerceProject2API.DAL.DTO.Response;
+using EcommerceProject2API.DAL.Migrations;
 using EcommerceProject2API.DAL.Models;
 using EcommerceProject2API.DAL.Repository.Interfaces;
 using Microsoft.AspNetCore.Http;
@@ -17,17 +18,24 @@ namespace EcommerceProject2API.BBL.Services.Classes
     public class CheckoutService : ICheckoutService
     {
         private readonly ICartRepository _cartRepository;
+        private readonly IProductRepository _productRepository;
         private readonly IOrderRepository _orderRepository;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly IHttpContextAccessor _httpContextAccessor;
+        private readonly ICartService _cartService;
 
-        public CheckoutService(ICartRepository cartRepository,IOrderRepository orderRepository,UserManager<ApplicationUser> userManager,IHttpContextAccessor httpContextAccessor)
+        public CheckoutService(ICartRepository cartRepository, IProductRepository productRepository,ICartService cartService ,IOrderRepository orderRepository,UserManager<ApplicationUser> userManager,IHttpContextAccessor httpContextAccessor)
         {
             _cartRepository = cartRepository;
+            _productRepository = productRepository;
             _orderRepository = orderRepository;
             _userManager = userManager;
             _httpContextAccessor = httpContextAccessor;
+            _cartService = cartService;
         }
+
+      
+
         public async Task<CheckoutResponse> ProcessCheckout(string userId, CheckoutRequest request)
         {
             var cartItems = await _cartRepository.GetAll(c => c.UserId == userId, new [] { nameof(Cart.Product), $"{nameof(Cart.Product)}.{nameof(Product.Translations)}" });
@@ -86,7 +94,7 @@ namespace EcommerceProject2API.BBL.Services.Classes
                 {
                     PaymentMethodTypes = new List<string> { "card" },
                     Mode = "payment",
-                    SuccessUrl = $"{_httpContextAccessor.HttpContext.Request.Scheme}://{_httpContextAccessor.HttpContext.Request.Host}/checkout/success",
+                    SuccessUrl = $"{_httpContextAccessor.HttpContext.Request.Scheme}://{_httpContextAccessor.HttpContext.Request.Host}/api/Checkout/success?sessionId={{CHECKOUT_SESSION_ID}}",
                     CancelUrl = $"{_httpContextAccessor.HttpContext.Request.Scheme}://{_httpContextAccessor.HttpContext.Request.Host}/checkout/cancel",
                     LineItems = new List<SessionLineItemOptions>()
                 };
@@ -110,9 +118,31 @@ namespace EcommerceProject2API.BBL.Services.Classes
                 }
                 var service = new SessionService();
                 var session = service.Create(options);
+                order.StripeSessionId=session.Id;
+                await _orderRepository.Update(order);
                 return new CheckoutResponse { Success= true ,StripeUrl=session.Url};
             }
             return new CheckoutResponse { Success= false ,Error="Invaild Payment"};
+        }
+
+
+        public async Task<CheckoutResponse> HandleSuccess(string sessionId)
+        {
+            var order = await _orderRepository.GetOne(o => o.StripeSessionId == sessionId, new[] {nameof(Order.OrderItems)});
+            order.OrderStatus = OrderStatusEnum.Paid;
+            await _orderRepository.Update(order);
+            await _cartService.ClearCart(order.UserId);
+            foreach (var item in order.OrderItems)
+            {
+               var isLowStock= await _productRepository.DecreaseQauntity(item.ProductId, item.Quantity);
+            }
+            
+            return new CheckoutResponse()
+            {
+                Success = true,
+                OrderId = order.Id
+            };
+
         }
     }
 }

@@ -16,5 +16,13 @@ namespace EcommerceProject2API.DAL.Repository.Classes
 
 
         }
+
+        public async Task<bool> DecreaseQauntity(int productId, int amount)
+        {
+            var product = await GetOne(p => p.Id == productId);
+            product.Qauntity-=amount;
+            await Update(product);
+            return product.Qauntity <5;
+        }
     }
 }

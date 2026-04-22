@@ -39,5 +39,20 @@ namespace EcommerceProject2API.PL.Controllers
 
 
         }
+        [HttpGet("success")]
+        [AllowAnonymous]
+        public async Task<IActionResult> Success([FromQuery] string sessionId)
+        {
+            var response=await _ICheckoutService.HandleSuccess(sessionId);
+            return
+                Ok(new
+                {
+                    
+                    message = _localizer["Success"].Value,
+                    sessionId=sessionId
+                });
+
+
+        }
     }
 }
