@@ -83,5 +83,13 @@ namespace EcommerceProject2API.DAL.Repository.Classes
             var affected =await _context.SaveChangesAsync();    
             return affected > 0;
         }
+
+        public async Task<bool> UpdateRange(List<T> entites)
+        {
+            _context.UpdateRange(entites);
+            var affected = await _context.SaveChangesAsync();
+            return affected > 0;
+        }
+      
     }
 }

@@ -17,12 +17,21 @@ namespace EcommerceProject2API.DAL.Repository.Classes
 
         }
 
-        public async Task<bool> DecreaseQauntity(int productId, int amount)
+        public async Task<List<Product>?> DecreaseQuantityAsync(List<OrderItem> orderItems)
         {
-            var product = await GetOne(p => p.Id == productId);
-            product.Qauntity-=amount;
-            await Update(product);
-            return product.Qauntity <5;
+            var productIds = orderItems.Select(i => i.ProductId).ToList();
+
+            var products = await GetAll(p => productIds.Contains(p.Id));
+
+            foreach (var product in products)
+            {
+                var item = orderItems.FirstOrDefault(p => p.ProductId == product.Id);
+                product.Qauntity -= item.Quantity;
+            }
+
+            await UpdateRange(products);
+
+            return products.Where(p => p.Qauntity < 5).ToList();
         }
     }
 }

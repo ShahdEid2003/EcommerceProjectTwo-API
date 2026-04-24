@@ -6,12 +6,10 @@ using EcommerceProject2API.DAL.Models;
 using EcommerceProject2API.DAL.Repository.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Stripe.Checkout;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using IEmailSender = EcommerceProject2API.BBL.Services.Interfaces.IEmailSender;
+
 
 namespace EcommerceProject2API.BBL.Services.Classes
 {
@@ -23,8 +21,11 @@ namespace EcommerceProject2API.BBL.Services.Classes
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly IHttpContextAccessor _httpContextAccessor;
         private readonly ICartService _cartService;
+        private readonly IEmailSender _emailSender;
 
-        public CheckoutService(ICartRepository cartRepository, IProductRepository productRepository,ICartService cartService ,IOrderRepository orderRepository,UserManager<ApplicationUser> userManager,IHttpContextAccessor httpContextAccessor)
+
+
+        public CheckoutService(ICartRepository cartRepository, IEmailSender emailSender, IProductRepository productRepository, ICartService cartService, IOrderRepository orderRepository, UserManager<ApplicationUser> userManager, IHttpContextAccessor httpContextAccessor)
         {
             _cartRepository = cartRepository;
             _productRepository = productRepository;
@@ -32,29 +33,30 @@ namespace EcommerceProject2API.BBL.Services.Classes
             _userManager = userManager;
             _httpContextAccessor = httpContextAccessor;
             _cartService = cartService;
+            _emailSender = emailSender;
         }
 
-      
+
 
         public async Task<CheckoutResponse> ProcessCheckout(string userId, CheckoutRequest request)
         {
-            var cartItems = await _cartRepository.GetAll(c => c.UserId == userId, new [] { nameof(Cart.Product), $"{nameof(Cart.Product)}.{nameof(Product.Translations)}" });
+            var cartItems = await _cartRepository.GetAll(c => c.UserId == userId, new[] { nameof(Cart.Product), $"{nameof(Cart.Product)}.{nameof(Product.Translations)}" });
             if (!cartItems.Any())
             {
                 return new CheckoutResponse { Success = false, Error = "Cart is empty" };
             }
-            var user=await _userManager.FindByIdAsync(userId);
+            var user = await _userManager.FindByIdAsync(userId);
             var city = request.City ?? user.City;//if <request.city> is null then take the value from <user.city>
             if (city is null)
             {
                 return new CheckoutResponse { Success = false, Error = "city is requierd" };
             }
-            var street = request.Street?? user.Street;
+            var street = request.Street ?? user.Street;
             if (street is null)
             {
                 return new CheckoutResponse { Success = false, Error = "street is requierd" };
             }
-            var phoneNumber = request.PhoneNumber?? user.PhoneNumber;
+            var phoneNumber = request.PhoneNumber ?? user.PhoneNumber;
             if (phoneNumber is null)
             {
                 return new CheckoutResponse { Success = false, Error = "phoneNumber is requierd" };
@@ -63,7 +65,7 @@ namespace EcommerceProject2API.BBL.Services.Classes
             {
                 if (item.Count > item.Product.Qauntity)
                 {
-                   return new CheckoutResponse { Success = false, Error = "Doesn’t have enough stock" };
+                    return new CheckoutResponse { Success = false, Error = "Doesn’t have enough stock" };
                 }
             }
             var order = new Order()
@@ -82,8 +84,8 @@ namespace EcommerceProject2API.BBL.Services.Classes
                     Quantity = c.Count
                 }).ToList()
             };
-            await _orderRepository.Create(order);   
-         
+            await _orderRepository.Create(order);
+
             if (request.PaymentMethod == PaymentMethodEnum.Cash)
             {
                 return new CheckoutResponse { Success = true };
@@ -98,7 +100,7 @@ namespace EcommerceProject2API.BBL.Services.Classes
                     CancelUrl = $"{_httpContextAccessor.HttpContext.Request.Scheme}://{_httpContextAccessor.HttpContext.Request.Host}/checkout/cancel",
                     LineItems = new List<SessionLineItemOptions>()
                 };
-                foreach(var item in cartItems)
+                foreach (var item in cartItems)
                 {
                     options.LineItems.Add(
                         new SessionLineItemOptions
@@ -118,25 +120,41 @@ namespace EcommerceProject2API.BBL.Services.Classes
                 }
                 var service = new SessionService();
                 var session = service.Create(options);
-                order.StripeSessionId=session.Id;
+                order.StripeSessionId = session.Id;
                 await _orderRepository.Update(order);
-                return new CheckoutResponse { Success= true ,StripeUrl=session.Url};
+                return new CheckoutResponse { Success = true, StripeUrl = session.Url };
             }
-            return new CheckoutResponse { Success= false ,Error="Invaild Payment"};
+            return new CheckoutResponse { Success = false, Error = "Invaild Payment" };
         }
 
 
         public async Task<CheckoutResponse> HandleSuccess(string sessionId)
         {
-            var order = await _orderRepository.GetOne(o => o.StripeSessionId == sessionId, new[] {nameof(Order.OrderItems)});
+            var order = await _orderRepository.GetOne
+                (
+                    filiter: o => o.StripeSessionId == sessionId
+                    , includes: new[]
+                    {   nameof(Order.OrderItems)  ,
+                        $"{nameof(Order.OrderItems)}.{nameof(OrderItem.Product)}",
+                        $"{nameof(Order.OrderItems)}.{nameof(OrderItem.Product)}.{nameof(Product.Translations)}"
+                    }
+                );
             order.OrderStatus = OrderStatusEnum.Paid;
             await _orderRepository.Update(order);
             await _cartService.ClearCart(order.UserId);
-            foreach (var item in order.OrderItems)
+
+            var user = await _userManager.FindByIdAsync(order.UserId);
+            await _emailSender.SendEmailAsync(user.Email, "order confirmed", "<h1>Your Order has been placed successfully</h1>");
+            var LowStockProducts = await _productRepository.DecreaseQuantityAsync(order.OrderItems);
+            foreach (var item in LowStockProducts)
             {
-               var isLowStock= await _productRepository.DecreaseQauntity(item.ProductId, item.Quantity);
+                if (LowStockProducts != null)
+                {
+                    await _emailSender.SendEmailAsync("shahdeid012@gmail.com", "low stock alert",
+                        $"<h2>product{item.Translations.FirstOrDefault(t => t.Language == "en").Name} current quantity:{item.Qauntity}</h2>");
+                }
             }
-            
+
             return new CheckoutResponse()
             {
                 Success = true,

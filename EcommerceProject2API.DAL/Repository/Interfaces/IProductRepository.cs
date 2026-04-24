@@ -9,6 +9,6 @@ namespace EcommerceProject2API.DAL.Repository.Interfaces
 {
     public interface IProductRepository : IGenericRepository<Product>
     {
-        Task<bool> DecreaseQauntity(int productId, int amount);
+        Task<List<Product>?> DecreaseQuantityAsync(List<OrderItem> orderItems);
     }
 }
