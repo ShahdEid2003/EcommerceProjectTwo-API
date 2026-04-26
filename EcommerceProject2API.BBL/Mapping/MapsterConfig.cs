@@ -30,7 +30,9 @@ namespace EcommerceProject2API.BBL.Mapping
                 .Map(destniation => destniation.UserCreated, source => source.CreatedBy.UserName)
                 .Map(dest => dest.Name, source => source.Translations
                 .Where(t => t.Language == CultureInfo.CurrentCulture.Name).Select(t => t.Name).FirstOrDefault())
-                .Map(dest=>dest.MainImg,source=>$"https://localhost:7186/images/{source.MainImg}");
+                .Map(dest=>dest.MainImg,source=>$"https://localhost:7186/images/{source.MainImg}")
+                .Map(dest => dest.SubImages,
+                 src => src.SubImages.Select(s => $"https://localhost:7186/images/{s.ImagePath}"));
 
             TypeAdapterConfig<ProductUpdateRequest, Product>.NewConfig().IgnoreNullValues(true);
 

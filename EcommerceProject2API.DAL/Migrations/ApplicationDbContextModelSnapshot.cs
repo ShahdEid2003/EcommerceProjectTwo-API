@@ -375,6 +375,28 @@ namespace EcommerceProject2API.DAL.Migrations
                     b.ToTable("Products");
                 });
 
+            modelBuilder.Entity("EcommerceProject2API.DAL.Models.ProductImage", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("ImagePath")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("ProductImages");
+                });
+
             modelBuilder.Entity("EcommerceProject2API.DAL.Models.ProductTranslations", b =>
                 {
                     b.Property<int>("Id")
@@ -679,6 +701,17 @@ namespace EcommerceProject2API.DAL.Migrations
                     b.Navigation("UpdatedBy");
                 });
 
+            modelBuilder.Entity("EcommerceProject2API.DAL.Models.ProductImage", b =>
+                {
+                    b.HasOne("EcommerceProject2API.DAL.Models.Product", "Product")
+                        .WithMany("SubImages")
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Product");
+                });
+
             modelBuilder.Entity("EcommerceProject2API.DAL.Models.ProductTranslations", b =>
                 {
                     b.HasOne("EcommerceProject2API.DAL.Models.Product", "Product")
@@ -762,6 +795,8 @@ namespace EcommerceProject2API.DAL.Migrations
 
             modelBuilder.Entity("EcommerceProject2API.DAL.Models.Product", b =>
                 {
+                    b.Navigation("SubImages");
+
                     b.Navigation("Translations");
                 });
 #pragma warning restore 612, 618

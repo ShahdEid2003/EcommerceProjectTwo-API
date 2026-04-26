@@ -6,6 +6,7 @@ using EcommerceProject2API.DAL.Models;
 using EcommerceProject2API.DAL.Repository.Classes;
 using EcommerceProject2API.DAL.Repository.Interfaces;
 using Mapster;
+using Stripe;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,23 +29,33 @@ namespace EcommerceProject2API.BBL.Services.Classes
 
         public async Task CreateProduct(ProductRequest request)
         {
-            var product = request.Adapt<Product>();
+            var product = request.Adapt<DAL.Models.Product>();
             if (request.MainImg != null)
             {
                 var ImagePath=await _IFileService.UploadeAsync(request.MainImg);
                 product.MainImg = ImagePath;
+            }
+            if (request.SubImages != null)
+            {
+                foreach (var image in request.SubImages)
+                {
+                    var imagePath = await _IFileService.UploadeAsync(image);
+                    product.SubImages.Add(new ProductImage { ImagePath = imagePath });
+                }
             }
             await _IProductRepository.Create(product);
         }
 
         public async Task<List<ProductResponse>> GetAllProductss()
         {
-            var products= await _IProductRepository.GetAll(p=>p.Status==EntityStatus.Active, new string[] { nameof(Product.Translations), nameof(Product.CreatedBy) });
+            var products= await _IProductRepository.GetAll(p=>p.Status==EntityStatus.Active,
+                new string[] { nameof(DAL.Models.Product.Translations), 
+                    nameof(DAL.Models.Product.CreatedBy) , nameof(DAL.Models.Product.SubImages) });
             return products.Adapt<List<ProductResponse>>();
         }
-        public async Task<ProductResponse?> GetProduct(Expression<Func<Product, bool>> filiter)
+        public async Task<ProductResponse?> GetProduct(Expression<Func<DAL.Models.Product, bool>> filiter)
         {
-            var product = await _IProductRepository.GetOne(filiter, new string[] { nameof(Product.Translations),nameof(Product.CreatedBy) }); //{nameof(Category.Translations)}تكافىء{"translatins"}
+            var product = await _IProductRepository.GetOne(filiter, new string[] { nameof(DAL.Models.Product.Translations),nameof(DAL.Models.Product.CreatedBy) }); //{nameof(Category.Translations)}تكافىء{"translatins"}
             if (product == null) return null;
             return product.Adapt<ProductResponse>(); ;
 
@@ -52,19 +63,23 @@ namespace EcommerceProject2API.BBL.Services.Classes
         public async Task<bool> DeleteProduct(int id)
         {
 
-            var product= await _IProductRepository.GetOne(p => p.Id == id);
+            var product = await _IProductRepository.GetOne(p => p.Id == id, new string[] { nameof(DAL.Models.Product.SubImages) });
             if (product == null) return false;
             _IFileService.Delete(product.MainImg);
-            return await _IProductRepository.Delete(product);
+            foreach (var image in product.SubImages)
+            {
+                _IFileService.Delete(image.ImagePath);
+            }
+                return await _IProductRepository.Delete(product);
         }
         public async Task<bool> UpdateProduct(int id,ProductUpdateRequest request)
         {
 
             var product = await _IProductRepository.GetOne(p => p.Id == id,new string[] {
-                nameof(Product.Translations) });
+                nameof(DAL.Models.Product.Translations) });
             
             if (product == null) return false;
-            request.Adapt<Product>();
+            request.Adapt<DAL.Models.Product>();
             if (request.Translations != null)
             {
                 foreach (var translationRequest in request.Translations)

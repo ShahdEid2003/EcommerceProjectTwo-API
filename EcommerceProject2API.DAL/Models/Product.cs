@@ -18,8 +18,8 @@ namespace EcommerceProject2API.DAL.Models
         public Category Category { get; set; }
         public int BrandId { get; set; }     
         public Brand Brand { get; set; }
-        public List<ProductTranslations> Translations { get; set; }
-        
+        public List<ProductTranslations> Translations { get; set; } = new List<ProductTranslations>();
+        public List<ProductImage> SubImages { get; set; } = new List<ProductImage>();
 
 
     }

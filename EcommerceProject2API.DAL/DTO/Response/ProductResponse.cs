@@ -17,6 +17,7 @@ namespace EcommerceProject2API.DAL.DTO.Response
         public string UserCreated {  get; set; }
        public string Name { get; set; }
         public string MainImg { get; set; }
+        public List<string> SubImages { get; set; }
 
     }
 }
