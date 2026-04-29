@@ -23,7 +23,7 @@ namespace EcommerceProject2API.PL.Extensions
                     ValidateAudience = true,
                     ValidateLifetime = true,
                     ValidateIssuerSigningKey = true,
-
+                    ClockSkew=TimeSpan.Zero,
                     ValidIssuer = Configuration["Jwt:Issuer"],
                     ValidAudience = Configuration["Jwt:Audience"],
 

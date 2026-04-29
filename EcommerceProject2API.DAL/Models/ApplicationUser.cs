@@ -14,5 +14,7 @@ namespace EcommerceProject2API.DAL.Models
         public string? Street { get; set; }
         public string? CodeRestPassword {  get; set; }
         public DateTime? PasswordRestCodeExpiry { get; set; }
+        public string? RefreshToken { get; set; }
+        public DateTime? RefreshTokenExpiry {get;set;}
     }
 }

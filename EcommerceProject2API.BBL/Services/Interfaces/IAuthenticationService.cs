@@ -16,6 +16,7 @@ namespace EcommerceProject2API.BBL.Services.Interfaces
         Task<bool> ConfirmEmail(string token, string userId);
         Task<ForgetPasswordResponse> RequestPasswordRest(ForgetPasswordRequest request);
         Task<ResetPasswordResponse> ResetPasswordAsync(ResetPasswordRequest request);
+        Task<LoginResponse> RefreshTokenAsync();
 
 
     }

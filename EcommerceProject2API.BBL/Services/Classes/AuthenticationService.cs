@@ -6,6 +6,7 @@ using EcommerceProject2API.DAL.Repository.Interfaces;
 using Mapster;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System;
@@ -70,6 +71,9 @@ namespace EcommerceProject2API.BBL.Services.Classes
             {
                 return new LoginResponse() { Success = false, Message = "invalid password" };
             }
+            var refreshToken= await GenerateRefreshToken(user);
+            SetRefreshTokenCookies(refreshToken);
+
             return new LoginResponse() { Success = true, Message = "Success", AccessToken = await GenerateAccessToken(user) };
         }
         private async Task<string> GenerateAccessToken(ApplicationUser user)
@@ -94,11 +98,63 @@ namespace EcommerceProject2API.BBL.Services.Classes
                 issuer: _configuration["Jwt:Issuer"],   // الجهة التي أصدرت التوكن (Auth Server / API)
                 audience: _configuration["Jwt:Audience"], // الجهة المسموح لها استخدام التوكن 
                 claims: userClaims,
-                expires: DateTime.Now.AddDays(5),
+                expires: DateTime.Now.AddMinutes(1),
                 signingCredentials: credentials
             );
 
             return new JwtSecurityTokenHandler().WriteToken(token);
+        }
+        private async Task<string> GenerateRefreshToken(ApplicationUser user)
+        {
+            var refreshToken=Guid.NewGuid().ToString();
+            user.RefreshToken= refreshToken;
+            user.RefreshTokenExpiry = DateTime.UtcNow.AddDays(15);
+            await _userManager.UpdateAsync(user);
+            return refreshToken;
+
+
+        }
+        private void SetRefreshTokenCookies(string refreshToken)
+        {
+            _httpContextAccessor.HttpContext.Response.Cookies.Append("refreshToken", refreshToken, new CookieOptions
+            {
+                HttpOnly = true,
+                Secure = false,//true for production
+                SameSite = SameSiteMode.None,
+                Expires= DateTime.UtcNow.AddDays(15)
+
+
+            });
+        }
+       public async Task<LoginResponse> RefreshTokenAsync()
+        {
+            var refreshToken = _httpContextAccessor.HttpContext.Request.Cookies["refreshToken"];
+            if(refreshToken is null)
+            {
+                return new LoginResponse
+                {
+                    Success = false,
+                    Message = "no refresh token"
+                };
+            }
+            var user = await _userManager.Users.FirstOrDefaultAsync(u => u.RefreshToken == refreshToken);
+            if (user.RefreshTokenExpiry < DateTime.UtcNow)
+            {
+                return new LoginResponse
+                {
+                    Success = false,
+                    Message = "refresh token Expires"
+                };
+            }
+            var newRefreshToken = await GenerateRefreshToken(user);
+            SetRefreshTokenCookies(newRefreshToken);
+            return new LoginResponse
+            {
+                Success = true,
+                Message = "Succes",
+                AccessToken = await GenerateAccessToken(user),
+
+            };
         }
         public async Task<bool> ConfirmEmail(string token, string userId)
         {
@@ -159,7 +215,6 @@ namespace EcommerceProject2API.BBL.Services.Classes
             return new ResetPasswordResponse() { Success = true, Message = "password reset success" };
         }
 
-
-
+       
     }
 }

@@ -52,5 +52,12 @@ namespace EcommerceProject2API.PL.Controllers
             if (!result.Success) return BadRequest();
             return Ok(result);
         }
+        [HttpPost("Refresh")]
+        public async Task<IActionResult> RefreshToken()
+        {
+            var result = await _authService.RefreshTokenAsync();
+            if (!result.Success) return Unauthorized();
+            return Ok(result);
+        }
     }
 }
