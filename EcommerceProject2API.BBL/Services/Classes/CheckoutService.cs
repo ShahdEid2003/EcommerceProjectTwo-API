@@ -6,9 +6,8 @@ using EcommerceProject2API.DAL.Models;
 using EcommerceProject2API.DAL.Repository.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.UI.Services;
 using Stripe.Checkout;
-using IEmailSender = EcommerceProject2API.BBL.Services.Interfaces.IEmailSender;
+using EcommerceProject2API.BBL.Services.Interfaces;
 
 
 namespace EcommerceProject2API.BBL.Services.Classes

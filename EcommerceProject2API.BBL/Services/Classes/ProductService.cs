@@ -25,24 +25,33 @@ namespace EcommerceProject2API.BBL.Services.Classes
             _IProductRepository = IProductRepository;
             _IFileService = IFileService;
         }
-       
+
 
         public async Task CreateProduct(ProductRequest request)
         {
             var product = request.Adapt<DAL.Models.Product>();
+
+            product.SubImages = new List<ProductImage>();
+
             if (request.MainImg != null)
             {
-                var ImagePath=await _IFileService.UploadeAsync(request.MainImg);
-                product.MainImg = ImagePath;
+                var imagePath = await _IFileService.UploadeAsync(request.MainImg);
+                product.MainImg = imagePath;
             }
+
             if (request.SubImages != null)
             {
                 foreach (var image in request.SubImages)
                 {
                     var imagePath = await _IFileService.UploadeAsync(image);
-                    product.SubImages.Add(new ProductImage { ImagePath = imagePath });
+
+                    product.SubImages.Add(new ProductImage
+                    {
+                        ImagePath = imagePath
+                    });
                 }
             }
+
             await _IProductRepository.Create(product);
         }
 
