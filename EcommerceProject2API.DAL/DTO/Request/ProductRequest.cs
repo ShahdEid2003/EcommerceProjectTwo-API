@@ -1,4 +1,5 @@
 ﻿using EcommerceProject2API.DAL.Models;
+using EcommerceProject2API.DAL.Validations;
 using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
@@ -16,6 +17,8 @@ namespace EcommerceProject2API.DAL.DTO.Request
         public int Qauntity { get; set; }
         public int CategoryId { get; set; }
         public int BrandId { get; set; }
+        [AllowedExtensions]
+        [MaxFileSize(2)]
         public IFormFile MainImg { get; set; }
         public List<IFormFile>? SubImages { get; set; }
         public List<ProductTranslationRequest> Translations { get; set; }
