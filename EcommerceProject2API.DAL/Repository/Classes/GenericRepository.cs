@@ -1,6 +1,7 @@
 ﻿using EcommerceProject2API.DAL.Data;
 using EcommerceProject2API.DAL.Repository.Classes;
 using EcommerceProject2API.DAL.Repository.Interfaces;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -64,7 +65,24 @@ namespace EcommerceProject2API.DAL.Repository.Classes
 
             // return await _context.Set<T>().Include(c => c.Translations).ToListAsync() بدل ما كانت 
         }
+        public  IQueryable<T> GetQueryable(Expression<Func<T, bool>> filiter = null, string[]? includes = null)
+        {
+            IQueryable<T> query = _context.Set<T>();
+            if (filiter != null)
+            {
+                query = query.Where(filiter);
+            }
+            if (includes != null)
+            {
+                foreach (string include in includes)
+                {
+                    query = query.Include(include);
+                }
+            }
+            return  query;
 
+           
+        }
         public async Task<T?> GetOne(Expression<Func<T, bool>> filiter, string[]? includes = null)
         {
             IQueryable<T> query = _context.Set<T>();
@@ -93,3 +111,28 @@ namespace EcommerceProject2API.DAL.Repository.Classes
       
     }
 }
+
+
+
+//static void Main(string[] args)
+//{
+//    List<int> items = new List<int> { 4, 7, 8 };
+
+//    // LINQ query is not executed immediately (Deferred Execution)
+//    var result = items.Where(item => item % 2 == 0);
+
+//    // Add new even number before foreach
+//    items.Add(10);
+
+//    foreach (var item in result)
+//    {
+//        Console.WriteLine(item);
+//    } //result:4,8,10 not 4,8 
+//}
+
+//وهذا فعليًا نفس الفكرة اللي بيشتغل فيها IQueryable.
+
+//التشابه:
+//الاثنين ما بينفذوا الاستعلام مباشرة.
+//الاثنين بيخزنوا “وصف للاستعلام” مش النتيجة.
+//التنفيذ بيصير لما تطلب البيانات (مثل foreach أو ToList()).

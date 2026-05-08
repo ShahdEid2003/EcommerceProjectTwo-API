@@ -13,6 +13,7 @@ namespace EcommerceProject2API.DAL.Repository.Interfaces
         Task<T> Create(T entity);
         Task<bool> Delete(T entity);
         Task<T?> GetOne(Expression <Func <T,bool>> filiter,string[]? includes = null);
+        IQueryable<T> GetQueryable(Expression<Func<T, bool>> filiter = null, string[]? includes = null);
         Task<bool> Update(T entity);
          Task<bool> DeleteRange(List<T> entites);
         Task<bool> UpdateRange(List<T> entites);

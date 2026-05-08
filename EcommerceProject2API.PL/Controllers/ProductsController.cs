@@ -21,9 +21,9 @@ namespace EcommerceProject2API.PL.Controllers
             _localizer = localizer;
         }
         [HttpGet("")]
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index([FromQuery]PagenationRequest request)
         {
-            var products = await _IProductService.GetAllProductss();
+            var products = await _IProductService.GetAllProductss( request);
 
             return Ok(new { data = products, _localizer["Success"].Value });
 

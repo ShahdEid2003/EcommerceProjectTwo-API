@@ -1,4 +1,5 @@
-﻿using EcommerceProject2API.BBL.Services.Interfaces;
+﻿using EcommerceProject2API.BBL.Extensions;
+using EcommerceProject2API.BBL.Services.Interfaces;
 using EcommerceProject2API.DAL.DTO.Request;
 using EcommerceProject2API.DAL.DTO.Response;
 using EcommerceProject2API.DAL.Migrations;
@@ -13,6 +14,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace EcommerceProject2API.BBL.Services.Classes
 {
@@ -55,12 +57,25 @@ namespace EcommerceProject2API.BBL.Services.Classes
             await _IProductRepository.Create(product);
         }
 
-        public async Task<List<ProductResponse>> GetAllProductss()
+        public async Task<PagenationResponse<ProductResponse>> GetAllProductss(PagenationRequest request)
         {
-            var products= await _IProductRepository.GetAll(p=>p.Status==EntityStatus.Active,
-                new string[] { nameof(DAL.Models.Product.Translations), 
-                    nameof(DAL.Models.Product.CreatedBy) , nameof(DAL.Models.Product.SubImages) });
-            return products.Adapt<List<ProductResponse>>();
+            var query =  _IProductRepository.GetQueryable(
+                p => p.Status == EntityStatus.Active,
+                new string[]
+                { nameof(DAL.Models.Product.Translations),
+                    nameof(DAL.Models.Product.CreatedBy) ,
+                    nameof(DAL.Models.Product.SubImages)
+                });
+                
+            var pagenatied = await query.ToPagenationAsync(request.Page, request.Limit);
+            return new PagenationResponse<ProductResponse>
+            {
+                Data = pagenatied.Data.Adapt<List<ProductResponse>>(),
+                TotalCount = pagenatied.TotalCount,
+                Page = pagenatied.Page,
+                Limit = pagenatied.Limit
+
+            };
         }
         public async Task<ProductResponse?> GetProduct(Expression<Func<DAL.Models.Product, bool>> filiter)
         {

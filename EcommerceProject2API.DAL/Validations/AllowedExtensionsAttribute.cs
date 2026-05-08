@@ -16,7 +16,7 @@ namespace EcommerceProject2API.DAL.Validations
             if (value is IFormFile file)
             {
                 var extension=Path.GetExtension(file.FileName).ToLower();
-                if (_extensions.Contains(extension))
+                if (!_extensions.Contains(extension))
                 {
                     return new ValidationResult($"Allowed Extensions:{string.Join(",", _extensions)}");
                 }

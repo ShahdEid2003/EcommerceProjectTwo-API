@@ -20,7 +20,7 @@ namespace EcommerceProject2API.BBL.Extensions
                     Page=page,
                     Limit=limit
                     
-                };
+            };
 
         }
     }
