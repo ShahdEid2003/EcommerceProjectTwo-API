@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace EcommerceProject2API.DAL.DTO.Response
 {
-    public class OrderResponse
+    public class OrderDetailedResponse
     {
         public int Id { get; set; }
         public string City { get; set; }
@@ -19,6 +19,6 @@ namespace EcommerceProject2API.DAL.DTO.Response
         public DateTime OrderDate { get; set; }
         public OrderStatusEnum OrderStatus { get; set; }
         public string? StripeSessionId { get; set; }
-        //public List<OrderItemResponse> OrderItems { get; set; }
+        public List<OrderItemResponse> OrderItems { get; set; }
     }
 }

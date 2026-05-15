@@ -3,8 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\user\\Documents\\Full Stack\\BackEnd\\API\\EcommerceProject2API.PL\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F10C8BFA-998D-4BA7-8C9C-868D9290BDAA}|EcommerceProject2API.BBL\\EcommerceProject2API.BBL.csproj|c:\\users\\user\\documents\\full stack\\backend\\api\\ecommerceproject2api.pl\\ecommerceproject2api.bbl\\mapping\\mapsterconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F10C8BFA-998D-4BA7-8C9C-868D9290BDAA}|EcommerceProject2API.BBL\\EcommerceProject2API.BBL.csproj|solutionrelative:ecommerceproject2api.bbl\\mapping\\mapsterconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F10C8BFA-998D-4BA7-8C9C-868D9290BDAA}|EcommerceProject2API.BBL\\EcommerceProject2API.BBL.csproj|c:\\users\\user\\documents\\full stack\\backend\\api\\ecommerceproject2api.pl\\ecommerceproject2api.bbl\\services\\classes\\orderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F10C8BFA-998D-4BA7-8C9C-868D9290BDAA}|EcommerceProject2API.BBL\\EcommerceProject2API.BBL.csproj|solutionrelative:ecommerceproject2api.bbl\\services\\classes\\orderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F10C8BFA-998D-4BA7-8C9C-868D9290BDAA}|EcommerceProject2API.BBL\\EcommerceProject2API.BBL.csproj|c:\\users\\user\\documents\\full stack\\backend\\api\\ecommerceproject2api.pl\\ecommerceproject2api.bbl\\services\\interfaces\\iorderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F10C8BFA-998D-4BA7-8C9C-868D9290BDAA}|EcommerceProject2API.BBL\\EcommerceProject2API.BBL.csproj|solutionrelative:ecommerceproject2api.bbl\\services\\interfaces\\iorderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9BB292EE-1F93-4F5E-A486-F3A32C3753B2}|EcommerceProject2API.DAL\\EcommerceProject2API.DAL.csproj|c:\\users\\user\\documents\\full stack\\backend\\api\\ecommerceproject2api.pl\\ecommerceproject2api.dal\\dto\\response\\orderdetailedresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9BB292EE-1F93-4F5E-A486-F3A32C3753B2}|EcommerceProject2API.DAL\\EcommerceProject2API.DAL.csproj|solutionrelative:ecommerceproject2api.dal\\dto\\response\\orderdetailedresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9BB292EE-1F93-4F5E-A486-F3A32C3753B2}|EcommerceProject2API.DAL\\EcommerceProject2API.DAL.csproj|c:\\users\\user\\documents\\full stack\\backend\\api\\ecommerceproject2api.pl\\ecommerceproject2api.dal\\models\\orderitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9BB292EE-1F93-4F5E-A486-F3A32C3753B2}|EcommerceProject2API.DAL\\EcommerceProject2API.DAL.csproj|solutionrelative:ecommerceproject2api.dal\\models\\orderitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9BB292EE-1F93-4F5E-A486-F3A32C3753B2}|EcommerceProject2API.DAL\\EcommerceProject2API.DAL.csproj|c:\\users\\user\\documents\\full stack\\backend\\api\\ecommerceproject2api.pl\\ecommerceproject2api.dal\\dto\\response\\orderresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9BB292EE-1F93-4F5E-A486-F3A32C3753B2}|EcommerceProject2API.DAL\\EcommerceProject2API.DAL.csproj|solutionrelative:ecommerceproject2api.dal\\dto\\response\\orderresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5CE71F47-C3A6-4B4C-8696-33FB17E80839}|EcommerceProject2API.PL\\EcommerceProject2API.PL.csproj|c:\\users\\user\\documents\\full stack\\backend\\api\\ecommerceproject2api.pl\\ecommerceproject2api.pl\\controllers\\orderscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -15,12 +31,8 @@
       "RelativeMoniker": "D:0:0:{5CE71F47-C3A6-4B4C-8696-33FB17E80839}|EcommerceProject2API.PL\\EcommerceProject2API.PL.csproj|solutionrelative:ecommerceproject2api.pl\\controllers\\cartscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5CE71F47-C3A6-4B4C-8696-33FB17E80839}|EcommerceProject2API.PL\\EcommerceProject2API.PL.csproj|c:\\users\\user\\documents\\full stack\\backend\\api\\ecommerceproject2api.pl\\ecommerceproject2api.pl\\extensions\\applicationservicesextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5CE71F47-C3A6-4B4C-8696-33FB17E80839}|EcommerceProject2API.PL\\EcommerceProject2API.PL.csproj|solutionrelative:ecommerceproject2api.pl\\extensions\\applicationservicesextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F10C8BFA-998D-4BA7-8C9C-868D9290BDAA}|EcommerceProject2API.BBL\\EcommerceProject2API.BBL.csproj|c:\\users\\user\\documents\\full stack\\backend\\api\\ecommerceproject2api.pl\\ecommerceproject2api.bbl\\services\\classes\\orderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F10C8BFA-998D-4BA7-8C9C-868D9290BDAA}|EcommerceProject2API.BBL\\EcommerceProject2API.BBL.csproj|solutionrelative:ecommerceproject2api.bbl\\services\\classes\\orderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F10C8BFA-998D-4BA7-8C9C-868D9290BDAA}|EcommerceProject2API.BBL\\EcommerceProject2API.BBL.csproj|c:\\users\\user\\documents\\full stack\\backend\\api\\ecommerceproject2api.pl\\ecommerceproject2api.bbl\\mapping\\mapsterconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F10C8BFA-998D-4BA7-8C9C-868D9290BDAA}|EcommerceProject2API.BBL\\EcommerceProject2API.BBL.csproj|solutionrelative:ecommerceproject2api.bbl\\mapping\\mapsterconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F10C8BFA-998D-4BA7-8C9C-868D9290BDAA}|EcommerceProject2API.BBL\\EcommerceProject2API.BBL.csproj|c:\\users\\user\\documents\\full stack\\backend\\api\\ecommerceproject2api.pl\\ecommerceproject2api.bbl\\services\\classes\\productservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -35,20 +47,8 @@
       "RelativeMoniker": "D:0:0:{F10C8BFA-998D-4BA7-8C9C-868D9290BDAA}|EcommerceProject2API.BBL\\EcommerceProject2API.BBL.csproj|solutionrelative:ecommerceproject2api.bbl\\services\\classes\\checkoutservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F10C8BFA-998D-4BA7-8C9C-868D9290BDAA}|EcommerceProject2API.BBL\\EcommerceProject2API.BBL.csproj|c:\\users\\user\\documents\\full stack\\backend\\api\\ecommerceproject2api.pl\\ecommerceproject2api.bbl\\services\\interfaces\\iorderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F10C8BFA-998D-4BA7-8C9C-868D9290BDAA}|EcommerceProject2API.BBL\\EcommerceProject2API.BBL.csproj|solutionrelative:ecommerceproject2api.bbl\\services\\interfaces\\iorderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{9BB292EE-1F93-4F5E-A486-F3A32C3753B2}|EcommerceProject2API.DAL\\EcommerceProject2API.DAL.csproj|c:\\users\\user\\documents\\full stack\\backend\\api\\ecommerceproject2api.pl\\ecommerceproject2api.dal\\dto\\response\\orderitemresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9BB292EE-1F93-4F5E-A486-F3A32C3753B2}|EcommerceProject2API.DAL\\EcommerceProject2API.DAL.csproj|solutionrelative:ecommerceproject2api.dal\\dto\\response\\orderitemresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9BB292EE-1F93-4F5E-A486-F3A32C3753B2}|EcommerceProject2API.DAL\\EcommerceProject2API.DAL.csproj|c:\\users\\user\\documents\\full stack\\backend\\api\\ecommerceproject2api.pl\\ecommerceproject2api.dal\\models\\orderitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9BB292EE-1F93-4F5E-A486-F3A32C3753B2}|EcommerceProject2API.DAL\\EcommerceProject2API.DAL.csproj|solutionrelative:ecommerceproject2api.dal\\models\\orderitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9BB292EE-1F93-4F5E-A486-F3A32C3753B2}|EcommerceProject2API.DAL\\EcommerceProject2API.DAL.csproj|c:\\users\\user\\documents\\full stack\\backend\\api\\ecommerceproject2api.pl\\ecommerceproject2api.dal\\dto\\response\\orderresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9BB292EE-1F93-4F5E-A486-F3A32C3753B2}|EcommerceProject2API.DAL\\EcommerceProject2API.DAL.csproj|solutionrelative:ecommerceproject2api.dal\\dto\\response\\orderresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F10C8BFA-998D-4BA7-8C9C-868D9290BDAA}|EcommerceProject2API.BBL\\EcommerceProject2API.BBL.csproj|c:\\users\\user\\documents\\full stack\\backend\\api\\ecommerceproject2api.pl\\ecommerceproject2api.bbl\\extensions\\pagenationextension.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -213,11 +213,28 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 4,
           "Children": [
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
+              "Title": "OrderDetailedResponse.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Documents\\Full Stack\\BackEnd\\API\\EcommerceProject2API.PL\\EcommerceProject2API.DAL\\DTO\\Response\\OrderDetailedResponse.cs",
+              "RelativeDocumentMoniker": "EcommerceProject2API.DAL\\DTO\\Response\\OrderDetailedResponse.cs",
+              "ToolTip": "C:\\Users\\user\\Documents\\Full Stack\\BackEnd\\API\\EcommerceProject2API.PL\\EcommerceProject2API.DAL\\DTO\\Response\\OrderDetailedResponse.cs",
+              "RelativeToolTip": "EcommerceProject2API.DAL\\DTO\\Response\\OrderDetailedResponse.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAoAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-15T17:22:51.559Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "MapsterConfig.cs",
               "DocumentMoniker": "C:\\Users\\user\\Documents\\Full Stack\\BackEnd\\API\\EcommerceProject2API.PL\\EcommerceProject2API.BBL\\Mapping\\MapsterConfig.cs",
               "RelativeDocumentMoniker": "EcommerceProject2API.BBL\\Mapping\\MapsterConfig.cs",
@@ -230,85 +247,46 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "CartsController.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Documents\\Full Stack\\BackEnd\\API\\EcommerceProject2API.PL\\EcommerceProject2API.PL\\Controllers\\CartsController.cs",
-              "RelativeDocumentMoniker": "EcommerceProject2API.PL\\Controllers\\CartsController.cs",
-              "ToolTip": "C:\\Users\\user\\Documents\\Full Stack\\BackEnd\\API\\EcommerceProject2API.PL\\EcommerceProject2API.PL\\Controllers\\CartsController.cs",
-              "RelativeToolTip": "EcommerceProject2API.PL\\Controllers\\CartsController.cs",
-              "ViewState": "AgIAABYAAAAAAAAAAAAgwDAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-15T06:53:03.765Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 5,
               "Title": "OrdersController.cs",
               "DocumentMoniker": "C:\\Users\\user\\Documents\\Full Stack\\BackEnd\\API\\EcommerceProject2API.PL\\EcommerceProject2API.PL\\Controllers\\OrdersController.cs",
               "RelativeDocumentMoniker": "EcommerceProject2API.PL\\Controllers\\OrdersController.cs",
               "ToolTip": "C:\\Users\\user\\Documents\\Full Stack\\BackEnd\\API\\EcommerceProject2API.PL\\EcommerceProject2API.PL\\Controllers\\OrdersController.cs",
               "RelativeToolTip": "EcommerceProject2API.PL\\Controllers\\OrdersController.cs",
-              "ViewState": "AgIAABMAAAAAAAAAAAAgwCIAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAABEAAAAAAAAAAAAUwCUAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-15T06:50:53.573Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ApplicationServicesExtensions.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Documents\\Full Stack\\BackEnd\\API\\EcommerceProject2API.PL\\EcommerceProject2API.PL\\Extensions\\ApplicationServicesExtensions.cs",
-              "RelativeDocumentMoniker": "EcommerceProject2API.PL\\Extensions\\ApplicationServicesExtensions.cs",
-              "ToolTip": "C:\\Users\\user\\Documents\\Full Stack\\BackEnd\\API\\EcommerceProject2API.PL\\EcommerceProject2API.PL\\Extensions\\ApplicationServicesExtensions.cs",
-              "RelativeToolTip": "EcommerceProject2API.PL\\Extensions\\ApplicationServicesExtensions.cs",
-              "ViewState": "AgIAABQAAAAAAAAAAAAQwCwAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-15T06:48:08.51Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "ProductService.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Documents\\Full Stack\\BackEnd\\API\\EcommerceProject2API.PL\\EcommerceProject2API.BBL\\Services\\Classes\\ProductService.cs",
-              "RelativeDocumentMoniker": "EcommerceProject2API.BBL\\Services\\Classes\\ProductService.cs",
-              "ToolTip": "C:\\Users\\user\\Documents\\Full Stack\\BackEnd\\API\\EcommerceProject2API.PL\\EcommerceProject2API.BBL\\Services\\Classes\\ProductService.cs",
-              "RelativeToolTip": "EcommerceProject2API.BBL\\Services\\Classes\\ProductService.cs",
-              "ViewState": "AgIAAC0AAAAAAAAAAAAowEEAAAA6AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-15T05:36:40.466Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "OrderService.cs",
               "DocumentMoniker": "C:\\Users\\user\\Documents\\Full Stack\\BackEnd\\API\\EcommerceProject2API.PL\\EcommerceProject2API.BBL\\Services\\Classes\\OrderService.cs",
               "RelativeDocumentMoniker": "EcommerceProject2API.BBL\\Services\\Classes\\OrderService.cs",
               "ToolTip": "C:\\Users\\user\\Documents\\Full Stack\\BackEnd\\API\\EcommerceProject2API.PL\\EcommerceProject2API.BBL\\Services\\Classes\\OrderService.cs",
               "RelativeToolTip": "EcommerceProject2API.BBL\\Services\\Classes\\OrderService.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAAAABsAAAAZAAAAAAAAAA==",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAcwDcAAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-15T05:14:05.308Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 1,
               "Title": "IOrderService.cs",
               "DocumentMoniker": "C:\\Users\\user\\Documents\\Full Stack\\BackEnd\\API\\EcommerceProject2API.PL\\EcommerceProject2API.BBL\\Services\\Interfaces\\IOrderService.cs",
               "RelativeDocumentMoniker": "EcommerceProject2API.BBL\\Services\\Interfaces\\IOrderService.cs",
               "ToolTip": "C:\\Users\\user\\Documents\\Full Stack\\BackEnd\\API\\EcommerceProject2API.PL\\EcommerceProject2API.BBL\\Services\\Interfaces\\IOrderService.cs",
               "RelativeToolTip": "EcommerceProject2API.BBL\\Services\\Interfaces\\IOrderService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAiAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAA4AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-15T05:13:05.55Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 3,
               "Title": "OrderItem.cs",
               "DocumentMoniker": "C:\\Users\\user\\Documents\\Full Stack\\BackEnd\\API\\EcommerceProject2API.PL\\EcommerceProject2API.DAL\\Models\\OrderItem.cs",
               "RelativeDocumentMoniker": "EcommerceProject2API.DAL\\Models\\OrderItem.cs",
@@ -320,31 +298,14 @@
               "EditorCaption": ""
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
-            },
-            {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "OrderItemResponse.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Documents\\Full Stack\\BackEnd\\API\\EcommerceProject2API.PL\\EcommerceProject2API.DAL\\DTO\\Response\\OrderItemResponse.cs",
-              "RelativeDocumentMoniker": "EcommerceProject2API.DAL\\DTO\\Response\\OrderItemResponse.cs",
-              "ToolTip": "C:\\Users\\user\\Documents\\Full Stack\\BackEnd\\API\\EcommerceProject2API.PL\\EcommerceProject2API.DAL\\DTO\\Response\\OrderItemResponse.cs",
-              "RelativeToolTip": "EcommerceProject2API.DAL\\DTO\\Response\\OrderItemResponse.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAvAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-15T05:08:40.674Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 4,
               "Title": "OrderResponse.cs",
               "DocumentMoniker": "C:\\Users\\user\\Documents\\Full Stack\\BackEnd\\API\\EcommerceProject2API.PL\\EcommerceProject2API.DAL\\DTO\\Response\\OrderResponse.cs",
               "RelativeDocumentMoniker": "EcommerceProject2API.DAL\\DTO\\Response\\OrderResponse.cs",
               "ToolTip": "C:\\Users\\user\\Documents\\Full Stack\\BackEnd\\API\\EcommerceProject2API.PL\\EcommerceProject2API.DAL\\DTO\\Response\\OrderResponse.cs",
               "RelativeToolTip": "EcommerceProject2API.DAL\\DTO\\Response\\OrderResponse.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAAxwBgAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-15T04:59:54.556Z",
               "EditorCaption": ""
@@ -352,6 +313,43 @@
             {
               "$type": "Document",
               "DocumentIndex": 6,
+              "Title": "CartsController.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Documents\\Full Stack\\BackEnd\\API\\EcommerceProject2API.PL\\EcommerceProject2API.PL\\Controllers\\CartsController.cs",
+              "RelativeDocumentMoniker": "EcommerceProject2API.PL\\Controllers\\CartsController.cs",
+              "ToolTip": "C:\\Users\\user\\Documents\\Full Stack\\BackEnd\\API\\EcommerceProject2API.PL\\EcommerceProject2API.PL\\Controllers\\CartsController.cs",
+              "RelativeToolTip": "EcommerceProject2API.PL\\Controllers\\CartsController.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAADAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-15T06:53:03.765Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ProductService.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Documents\\Full Stack\\BackEnd\\API\\EcommerceProject2API.PL\\EcommerceProject2API.BBL\\Services\\Classes\\ProductService.cs",
+              "RelativeDocumentMoniker": "EcommerceProject2API.BBL\\Services\\Classes\\ProductService.cs",
+              "ToolTip": "C:\\Users\\user\\Documents\\Full Stack\\BackEnd\\API\\EcommerceProject2API.PL\\EcommerceProject2API.BBL\\Services\\Classes\\ProductService.cs",
+              "RelativeToolTip": "EcommerceProject2API.BBL\\Services\\Classes\\ProductService.cs",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAowEEAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-15T05:36:40.466Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "OrderItemResponse.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Documents\\Full Stack\\BackEnd\\API\\EcommerceProject2API.PL\\EcommerceProject2API.DAL\\DTO\\Response\\OrderItemResponse.cs",
+              "RelativeDocumentMoniker": "EcommerceProject2API.DAL\\DTO\\Response\\OrderItemResponse.cs",
+              "ToolTip": "C:\\Users\\user\\Documents\\Full Stack\\BackEnd\\API\\EcommerceProject2API.PL\\EcommerceProject2API.DAL\\DTO\\Response\\OrderItemResponse.cs",
+              "RelativeToolTip": "EcommerceProject2API.DAL\\DTO\\Response\\OrderItemResponse.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-15T05:08:40.674Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
               "Title": "Order.cs",
               "DocumentMoniker": "C:\\Users\\user\\Documents\\Full Stack\\BackEnd\\API\\EcommerceProject2API.PL\\EcommerceProject2API.DAL\\Models\\Order.cs",
               "RelativeDocumentMoniker": "EcommerceProject2API.DAL\\Models\\Order.cs",
@@ -359,12 +357,11 @@
               "RelativeToolTip": "EcommerceProject2API.DAL\\Models\\Order.cs",
               "ViewState": "AgIAAA8AAAAAAAAAAAAkwCEAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-22T16:44:53.963Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-22T16:44:53.963Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 10,
               "Title": "CheckoutService.cs",
               "DocumentMoniker": "C:\\Users\\user\\Documents\\Full Stack\\BackEnd\\API\\EcommerceProject2API.PL\\EcommerceProject2API.BBL\\Services\\Classes\\CheckoutService.cs",
               "RelativeDocumentMoniker": "EcommerceProject2API.BBL\\Services\\Classes\\CheckoutService.cs",
@@ -372,8 +369,7 @@
               "RelativeToolTip": "EcommerceProject2API.BBL\\Services\\Classes\\CheckoutService.cs",
               "ViewState": "AgIAAHYAAAAAAAAAAAAAAJMAAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-16T06:52:58.009Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-16T06:52:58.009Z"
             },
             {
               "$type": "Document",

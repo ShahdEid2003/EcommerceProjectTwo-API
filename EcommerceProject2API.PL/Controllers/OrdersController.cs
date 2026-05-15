@@ -31,5 +31,15 @@ namespace EcommerceProject2API.PL.Controllers
 
 
         }
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetOrder(int id)
+        {
+            var UserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var order = await _IOrderService.GetUserOrder(UserId,id);
+
+            return Ok(new { data = order, _localizer["Success"].Value });
+
+
+        }
     }
 }

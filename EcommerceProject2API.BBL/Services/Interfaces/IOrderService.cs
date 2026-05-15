@@ -10,5 +10,7 @@ namespace EcommerceProject2API.BBL.Services.Interfaces
     public interface IOrderService
     {
         Task<List<OrderResponse>> GetUserOrders(string userId);
+        Task<OrderDetailedResponse?> GetUserOrder(string userId, int orderId);
+        Task<bool> CancelOrder(string userId, int orderId);
     }
 }
