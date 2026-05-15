@@ -321,6 +321,16 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "EcommerceProject2API.PL.Controllers.OrdersController",
+    "Method": "GetAll",
+    "RelativePath": "api/Orders",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "EcommerceProject2API.PL.Controllers.ProductsController",
     "Method": "Index",
     "RelativePath": "api/Products",

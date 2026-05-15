@@ -50,6 +50,11 @@ namespace EcommerceProject2API.BBL.Mapping
                 .Map(dest => dest.MainImg, source => $"https://localhost:7186/images/{source.Product.MainImg}")
                 .Map(dest => dest.Price, source => source.Product.Price)
                 .Map(dest => dest.Discount, source => source.Product.Discount);
+            TypeAdapterConfig<OrderItem, OrderItemResponse>.NewConfig()
+                .Map(dest => dest.ProductName, source => source.Product.Translations
+                .Where(t => t.Language == CultureInfo.CurrentCulture.Name)
+                .Select(t => t.Name).FirstOrDefault());
+                
 
         }
     }
