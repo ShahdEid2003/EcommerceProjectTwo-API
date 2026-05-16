@@ -1,0 +1,14 @@
+﻿using EcommerceProject2API.DAL.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace EcommerceProject2API.DAL.DTO.Request
+{
+    public class ChangeOrderStatusRequest
+    {
+        public OrderStatusEnum OrderStatus { get; set; }
+    }
+}

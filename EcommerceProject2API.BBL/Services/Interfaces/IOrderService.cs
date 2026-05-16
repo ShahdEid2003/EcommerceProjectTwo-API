@@ -1,4 +1,6 @@
-﻿using EcommerceProject2API.DAL.DTO.Response;
+﻿using EcommerceProject2API.DAL.DTO.Request;
+using EcommerceProject2API.DAL.DTO.Response;
+using EcommerceProject2API.DAL.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,5 +14,9 @@ namespace EcommerceProject2API.BBL.Services.Interfaces
         Task<List<OrderResponse>> GetUserOrders(string userId);
         Task<OrderDetailedResponse?> GetUserOrder(string userId, int orderId);
         Task<bool> CancelOrder(string userId, int orderId);
+        //Admin
+        Task<List<OrderResponse>> GetAllOrders(OrderStatusEnum status);
+        Task<bool> ChangeOrderStatus(int orderId, ChangeOrderStatusRequest request);
+
     }
 }
