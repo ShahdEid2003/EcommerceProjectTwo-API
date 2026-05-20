@@ -45,6 +45,7 @@ namespace EcommerceProject2API.PL.Controllers
         {
 
             var result = await _IUserManagmentService.ChangeRole(userId,request.newRole);
+           
             if(!result)
                 return BadRequest();
             return Ok(new {  _localizer["Success"].Value });

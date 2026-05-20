@@ -15,20 +15,30 @@ namespace EcommerceProject2API.BBL.Services.Classes
     public class UserMangmentService : IUserMangmentService
     {
         private readonly UserManager<ApplicationUser> _userManager;
-        private readonly RoleManager<ApplicationUser> _roleManager;
+        private readonly RoleManager<IdentityRole> _roleManager;
 
-        public   UserMangmentService(UserManager<ApplicationUser> userManager,RoleManager<ApplicationUser> _roleManager){
+        public   UserMangmentService(UserManager<ApplicationUser> userManager,RoleManager<IdentityRole> roleManager){
            _userManager = userManager;
-            _roleManager = _roleManager;
+            _roleManager = roleManager;
         }
         public async Task<bool> ChangeRole(string userId, string role)
         {
             var user = await _userManager.FindByIdAsync(userId);
+
+            if (user == null)
+                return false;
+
             var rolesExists = await _roleManager.RoleExistsAsync(role);
-            if(!rolesExists){return false;}
-            var currentRoles=await _userManager.GetRolesAsync(user);
+
+            if (!rolesExists)
+                return false;
+
+            var currentRoles = await _userManager.GetRolesAsync(user);
+
             await _userManager.RemoveFromRolesAsync(user, currentRoles);
+
             var result = await _userManager.AddToRoleAsync(user, role);
+
             return result.Succeeded;
         }
 
