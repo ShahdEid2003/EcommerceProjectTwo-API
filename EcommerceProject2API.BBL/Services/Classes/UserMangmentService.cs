@@ -17,7 +17,7 @@ namespace EcommerceProject2API.BBL.Services.Classes
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly RoleManager<IdentityRole> _roleManager;
 
-        public   UserMangmentService(UserManager<ApplicationUser> userManager,RoleManager<IdentityRole> roleManager){
+        public UserMangmentService(UserManager<ApplicationUser> userManager,RoleManager<IdentityRole> roleManager){
            _userManager = userManager;
             _roleManager = roleManager;
         }
@@ -63,9 +63,32 @@ namespace EcommerceProject2API.BBL.Services.Classes
             return result;
         }
 
-        public Task<bool> ToggleBlockUser(string userId)
+        public async Task<bool> ToggleBlockUser(string userId)
         {
-            throw new NotImplementedException();
+            
+            var user = await _userManager.FindByIdAsync(userId);
+            if (user == null)
+                return false;
+
+            bool isBlocked = user.LockoutEnd> DateTime.UtcNow;
+
+            //  إذا محظور فك الحظر
+            if (isBlocked)
+            {
+                await _userManager.SetLockoutEndDateAsync(user, null);
+            }
+            // إذا مش محظور احظره لمدة 5 أيام
+            else
+            {
+                await _userManager.SetLockoutEnabledAsync(user, true);
+                await _userManager.SetLockoutEndDateAsync(
+                    user,
+                    DateTime.UtcNow.AddDays(5)
+                );
+            }
+
+            return true;
         }
+        
     }
 }

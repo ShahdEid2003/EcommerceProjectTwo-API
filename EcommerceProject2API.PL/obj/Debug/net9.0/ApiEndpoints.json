@@ -117,6 +117,22 @@
   },
   {
     "ContainingType": "EcommerceProject2API.PL.Controllers.UserManagmentController",
+    "Method": "ToggleBlock",
+    "RelativePath": "api/admin/{userId}/toggle-block",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EcommerceProject2API.PL.Controllers.UserManagmentController",
     "Method": "GetUsers",
     "RelativePath": "api/admin/users",
     "HttpMethod": "GET",

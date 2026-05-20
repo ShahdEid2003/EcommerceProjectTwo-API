@@ -51,5 +51,16 @@ namespace EcommerceProject2API.PL.Controllers
             return Ok(new {  _localizer["Success"].Value });
 
         }
+        [HttpPatch("{userId}/toggle-block")]
+        public async Task<IActionResult> ToggleBlock([FromRoute] string userId)
+        {
+
+            var result = await _IUserManagmentService.ToggleBlockUser(userId);
+
+            if (!result)
+                return BadRequest();
+            return Ok(new { _localizer["Success"].Value });
+
+        }
     }
 }

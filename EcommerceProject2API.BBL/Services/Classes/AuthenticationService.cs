@@ -66,6 +66,11 @@ namespace EcommerceProject2API.BBL.Services.Classes
                 return new LoginResponse() { Success = false, Message = " email is not confirmed" };
 
             }
+            if (await _userManager.IsLockedOutAsync(user))
+            {
+                return new LoginResponse() { Success = false, Message = " user is blocked" };
+
+            }
             var result = await _userManager.CheckPasswordAsync(user, request.Password);
             if (!result)
             {
