@@ -95,6 +95,32 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "EcommerceProject2API.PL.Controllers.UserManagmentController",
+    "Method": "GetUsers",
+    "RelativePath": "api/admin/users",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EcommerceProject2API.PL.Controllers.UserManagmentController",
+    "Method": "GetUser",
+    "RelativePath": "api/admin/users/{userId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "EcommerceProject2API.PL.Controllers.BrandsController",
     "Method": "Index",
     "RelativePath": "api/Brands",

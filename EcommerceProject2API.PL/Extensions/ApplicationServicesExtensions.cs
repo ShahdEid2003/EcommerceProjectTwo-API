@@ -32,6 +32,7 @@ namespace EcommerceProject2API.PL.Extensions
             Services.AddScoped<IBrandRepository, BrandRepository>();
             Services.AddScoped<IBrandService, BrandService>();
             Services.AddScoped<ICartService, CartService>();
+            Services.AddScoped<IUserMangmentService, UserMangmentService>();
             Services.AddScoped<ICheckoutService, BBL.Services.Classes.CheckoutService>();
             Services.AddScoped<ICartRepository, CartRepository>();
             Services.AddScoped<IOrderRepository, OrderRepository>();
