@@ -57,7 +57,7 @@ namespace EcommerceProject2API.BBL.Services.Classes
             await _IProductRepository.Create(product);
         }
 
-        public async Task<PagenationResponse<ProductResponse>> GetAllProductss(PagenationRequest request)
+        public async Task<PagenationResponse<ProductResponse>> GetAllProductss(ProductFiliterRequest request)
         {
             var query =  _IProductRepository.GetQueryable(
                 p => p.Status == EntityStatus.Active,
@@ -66,7 +66,26 @@ namespace EcommerceProject2API.BBL.Services.Classes
                     nameof(DAL.Models.Product.CreatedBy) ,
                     nameof(DAL.Models.Product.SubImages)
                 });
-                
+            if (request.Search != null)
+            {
+                query = query.Where(p => p.Translations.Any(t => t.Name.Contains(request.Search)));
+            }
+            if (request.CategoryId.HasValue)
+            {
+                query = query.Where(p => p.CategoryId==request.CategoryId);
+            }
+            if (request.MaxPrice.HasValue)
+            {
+                query = query.Where(p => p.Price <= request.MaxPrice);
+            }
+            if (request.MinPrice.HasValue)
+            {
+                query = query.Where(p => p.Price >= request.MinPrice);
+            }
+            if (request.MinRate.HasValue)
+            {
+                query = query.Where(p =>p.Rate == request.MinRate);
+            }
             var pagenatied = await query.ToPagenationAsync(request.Page, request.Limit);
             return new PagenationResponse<ProductResponse>
             {

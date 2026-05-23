@@ -18,6 +18,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using EcommerceProject2API.BBL.Mapping;
 using EcommerceProject2API.PL.Extensions;
+using EcommerceProject2API.PL.Middleware;
 
 
 namespace EcommerceProject2API.PL
@@ -65,6 +66,12 @@ namespace EcommerceProject2API.PL
             app.UseAuthorization();
             app.UseStaticFiles();//Â«Ì ⁄‘«‰ «·’Ê— „‰ «·(wwwroot)  ÊŒ– «·’Ê—…
             app.MapControllers();
+
+
+            app.UseMiddleware<GlobalExceptionHandling>();//error handle 
+            //app.UseMiddleware<CustomMiddleware>();‘ﬂ· «·«” œ⁄«¡ »œÊ‰ „« «⁄„· ›‰ﬂ‘‰ «·” « ﬂ
+            app.UseCustomMiddleWare();
+           
             using (var scope = app.Services.CreateScope())
             {
                 var services = scope.ServiceProvider;

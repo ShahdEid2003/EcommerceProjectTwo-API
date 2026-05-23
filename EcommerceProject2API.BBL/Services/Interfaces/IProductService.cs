@@ -13,7 +13,7 @@ namespace EcommerceProject2API.BBL.Services.Interfaces
     public interface IProductService
     {
         public Task CreateProduct(ProductRequest request);
-        public Task<PagenationResponse<ProductResponse>> GetAllProductss(PagenationRequest request);
+        public Task<PagenationResponse<ProductResponse>> GetAllProductss(ProductFiliterRequest request);
         public Task<ProductResponse?> GetProduct(Expression<Func<Product, bool>> filiter);
         public  Task<bool> DeleteProduct(int id);
         public  Task<bool> UpdateProduct(int id, ProductUpdateRequest request);

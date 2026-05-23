@@ -33,9 +33,11 @@ namespace EcommerceProject2API.PL.Extensions
             Services.AddScoped<IBrandService, BrandService>();
             Services.AddScoped<ICartService, CartService>();
             Services.AddScoped<IUserMangmentService, UserMangmentService>();
+            Services.AddScoped<IReviewService, BBL.Services.Classes.ReviewService>();
             Services.AddScoped<ICheckoutService, BBL.Services.Classes.CheckoutService>();
             Services.AddScoped<ICartRepository, CartRepository>();
             Services.AddScoped<IOrderRepository, OrderRepository>();
+            Services.AddScoped<IReviewRepository, ReviewRepository>();
             Services.AddScoped<IOrderService, OrderService>();
             Services.Configure<StripeSettings>(Configuration.GetSection("Stripe"));
             StripeConfiguration.ApiKey = Configuration["Stripe:SecretKey"];
